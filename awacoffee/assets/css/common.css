@@ -1,0 +1,574 @@
+body {
+  color: #542912;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: "";
+  letter-spacing: "";
+  /* line-height: 2rem; */
+  /* 改行用 */
+  overflow-wrap: break-word;
+}
+
+/* bobyのcolorで行くなら消す */
+h1 {
+  /* color: #542912; */
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: "";
+  line-height: "";
+  text-align: center;
+}
+h2 {
+  /* color: #542912; */
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: "";
+  line-height: "";
+  text-align: center;
+}
+h3 {
+  /* color: #542912; */
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 16px;
+  font-weight: "";
+  letter-spacing: "";
+  line-height: "";
+}
+/* p を.title_sub にしても良い*/
+.wrap_title p {
+  color: #7b850b;
+  font-family: rollerscript-rough, sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+iframe {
+  max-width: 100%;
+}
+/* 文字を背景を外すならimgのみ */
+a img {
+  transition: 1s ease-in-out;
+}
+a {
+  transition: 1s ease-in-out;
+}
+
+a img:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+  /* transition: 1s ease-in-out; */
+}
+
+/* ======================================================== */
+.wrap {
+  margin: 0 auto;
+}
+.inner {
+  padding: 40px 20px 60px;
+}
+
+/* 背景ベージュ用 */
+section:nth-of-type(even) {
+  background-color: #f6f4ef;
+}
+.wrap_title {
+  margin-bottom: 60px;
+}
+/* .wrap_text {
+} */
+
+/* ====================================================== */
+/* レスポンス */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 28px;
+    letter-spacing: "";
+    line-height: "";
+  }
+  h2 {
+    font-size: 28px;
+    letter-spacing: "";
+    line-height: "";
+  }
+  h3 {
+    font-size: 22px;
+    letter-spacing: "";
+    line-height: "";
+  }
+
+  .wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .inner {
+    padding: 100px 25px;
+  }
+  /* ※PC版aboutのみ余白広め */
+  .about .inner {
+    padding: 170px 25px 200px;
+  }
+  .wrap_title p {
+    font-size: 48px;
+  }
+}
+
+/* サイドバー用 */
+@media (min-width: 1100px) {
+  /* 名前変更 */
+  aside {
+    display: block;
+  }
+  .side_scrool {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+  }
+}
+
+/* ======コンポーネント一覧================================================ */
+/* ヘッダー */
+.header_wrap {
+  /* 確認用の背景色。実際は動画 */
+  background-color: #000;
+  height: 100vh;
+}
+.header_inner {
+  padding: 0 20px;
+  height: 100%;
+}
+.header_wrap_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: -20px;
+  height: 45px;
+}
+@media (min-width: 768px) {
+  .header_wrap_box {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 70px;
+  }
+}
+.header_wrap_box_icon {
+  display: block;
+}
+.header_wrap_box_icon img {
+  width: 36px;
+  height: 36px;
+}
+.header_nav_list {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header_wrap_box_icon img {
+    width: 60px;
+    height: 60px;
+  }
+  .header_nav_list {
+    display: flex;
+  }
+  .header_nav_item {
+    padding: 10px 15px;
+    font-family: "Shippori Mincho B1", serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+/* ハンバーガーメニュー */
+.header_wrap_box_nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: #041526;
+}
+@media (min-width: 768px) {
+  .header_wrap_box_nav {
+    display: none;
+  }
+}
+.header_wrap_box_nav_line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.header_wrap_box_nav_line:nth-of-type(2) {
+  position: absolute;
+  bottom: 16.5px;
+}
+.header_wrap_box_nav_line:nth-of-type(3) {
+  position: absolute;
+  top: 16.5px;
+}
+.header_wrap_box_nav_line:nth-of-type(1).active {
+  opacity: 0;
+}
+.header_wrap_box_nav_line:nth-of-type(2).active {
+  transform: translateY(-5px) rotate(45deg);
+}
+.header_wrap_box_nav_line:nth-of-type(3).active {
+  transform: translateY(5px) rotate(-45deg);
+}
+
+.header_wrap_logo {
+  padding-top: 145px;
+  margin: 0 auto;
+  width: 75%;
+  min-width: 284px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .header_wrap_logo {
+    padding-top: 20px;
+    width: 50%;
+  }
+}
+/* ここはヒーローの上。なのでヘッダーと分ける？ */
+.header_wrap_catch {
+  text-align: center;
+  font-family: "Shippori Mincho B1", serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 2;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .header_wrap_catch {
+    font-size: 26px;
+    line-height: 2.15;
+  }
+}
+
+/* ドロワーメニュー */
+.drower {
+  display: none;
+}
+@media (min-width: 768px) {
+  .drower {
+    display: none;
+  }
+}
+/* ↓jsで.visible付け外し */
+.drower.visible {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow-y: auto;
+}
+.drower .wrap {
+  background-color: #041526;
+  height: 100vh;
+}
+.drower .inner {
+  padding: 110px 20px 0;
+  height: 100%;
+}
+.drower_nav_logo {
+  width: 67%;
+  margin: 0 auto 30px;
+  width: 284px;
+}
+.drower_nav {
+  color: #fff;
+  text-align: center;
+}
+.drower_nav_box {
+  margin-bottom: 60px;
+}
+.drower_nav_box_item {
+  display: inline-block;
+  padding: 1em;
+  font-size: 16px;
+}
+.drower_nav_box li + li {
+  border-left: 1px solid #fff;
+}
+.drower_nav_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drower_nav_item {
+  padding: 1em 3.5em;
+  font-size: 16px;
+}
+.drower_nav_list a {
+  display: inline-block;
+}
+
+/* btn*/
+.btn_wrap {
+  margin: 40px auto 0;
+  max-width: 220px;
+}
+.btn_link {
+  display: block;
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #041526;
+  border-radius: 3px;
+  text-align: center;
+  opacity: 0.7;
+  font-family: "Shippori Mincho B1", serif;
+}
+.btn_link span {
+  color: #fff;
+}
+.btn_link:hover {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .btn_wrap {
+    margin: 100px auto 0;
+    max-width: 250px;
+  }
+  .btn_link {
+    padding: 20px 0;
+    font-size: 20px;
+  }
+}
+
+/* column */
+.column_wrap {
+  margin: 0 auto;
+  min-width: 332px;
+  background-color: #fff;
+  box-shadow: 0px 5px 15px 0px rgb(0 0 0 / 15%);
+}
+.column_wrap + .column_wrap {
+  margin-top: 20px;
+}
+.column_inner {
+  width: 100%;
+  display: flex;
+}
+.img_wrap {
+  width: 44%;
+  min-width: 200px;
+  /* max-width: 240px; */
+  overflow: hidden;
+}
+
+.column_meta {
+  margin-left: 1%;
+  width: 56%;
+  padding: 5px 8px;
+}
+.column_meta h3 {
+  margin-bottom: 5px;
+}
+.column_meta .categories {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border: 1px solid#542912;
+  font-size: 12px;
+}
+.column_date {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .column_wrap + .column_wrap {
+    margin: 0 0 0 10%;
+  }
+  .column_inner {
+    display: block;
+  }
+  .card_wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  .column_wrap {
+    box-shadow: 0px 5px 15px 0px rgb(0 0 0 / 15%);
+    min-width: auto;
+  }
+  .img_wrap {
+    width: 100%;
+  }
+  .column_date {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  .column_meta {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px 18px 16px;
+  }
+  .column_text {
+    margin-bottom: 10px;
+  }
+}
+
+/* stores(SP) */
+.stores_wrap_card2 {
+  width: 48%;
+  background-color: #f6f4efff;
+  margin-bottom: 20px;
+  border: 0.5px solid #542912;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.stores_wrap_card2:hover {
+  box-shadow: 0 0 15px #542912;
+}
+/* .stores_wrap_card_img2 {
+  padding-top: 75%;
+  content: "";
+  background-image: url(/img/free0.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+.store_card_inner2 {
+  width: 90%;
+  margin: 0.5rem auto;
+}
+.stores_wrap_card_name2 {
+  /* 下のmarginかpaddingコンポーネントしたほうがいいかも */
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.stores_wrap_card_catch2 {
+  padding-bottom: 0.5rem;
+  font-size: 14px;
+  border-bottom: solid 1px #542912;
+}
+.stores_wrap_card_tags2 {
+  display: flex;
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+.stores_wrap_card_tag2:not(:first-child) {
+  /* 下のmarginかpaddingコンポーネントしたほうがいいかも */
+  margin: 0 0 0 10px;
+}
+
+/* 新着情報 */
+.news_wrap_card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #7b850b;
+}
+.news_wrap_card:last-child {
+  margin-bottom: 0;
+}
+.news_wrap_card_icon {
+  flex-basis: 42px;
+  text-align: center;
+}
+.news_wrap_card_inner {
+  margin-left: 1%;
+  padding: 0.5em;
+}
+.news_date {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.news_head {
+  margin-bottom: 6px;
+}
+.news_text {
+  line-height: 1.5em;
+}
+@media (min-width: 768px) {
+  .news_wrap_cards {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/* 「飲む」「豆」ボタン下部fix */
+.bottom_box {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 99;
+}
+.bottom_box_list {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .bottom_box_list {
+    justify-content: center;
+  }
+}
+.bottom_box_item {
+  flex-basis: 50%;
+  text-align: center;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 20px;
+  color: #fff;
+}
+.bottom_box_item {
+  background-color: rgba(4, 21, 38, 0.9);
+}
+.bottom_box_item:last-of-type {
+  background-color: rgba(86, 121, 155, 0.8);
+}
+.bottom_box_item a {
+  display: block;
+  height: 55px;
+  line-height: 55px;
+}
+@media (min-width: 768px) {
+  .bottom_box_item:first-of-type a {
+    padding-left: calc((100% - 250px));
+  }
+  .bottom_box_item:last-of-type a {
+    padding-right: calc((100% - 250px));
+  }
+}
+
+/* フッター（作成中） */
+footer {
+  background-color: #041526;
+}
+.footer_nav {
+  margin-bottom: 55px;
+}
+.footer_nav_item {
+  padding-left: 1em;
+  margin-bottom: 18px;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 18px;
+  /* border-bottom: 1px solid #fff; */
+  color: #fff;
+}
+.footer_nav_item a {
+  display: inline-block;
+  height: 56px;
+  line-height: 56px;
+}
+.footer_logo {
+  width: 53%;
+  margin: 0 auto 16px;
+}
+.footer_wrap_copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  color: #fff;
+}

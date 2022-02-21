@@ -1,0 +1,53 @@
+/* フロントページCSS */
+
+.tab_wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #041526;
+}
+@media (min-width: 768px) {
+    .tab_wrap {
+        justify-content: flex-start;
+    }
+}
+.tab_wrap li {
+    flex-basis: calc((100% - 5px) / 2);
+    padding: 10px 10px;
+    text-align: center;
+    border: 1px solid #041526;
+    font-size: 16px;
+    color: #041526;
+}
+@media (min-width: 768px) {
+    .tab_wrap li {
+        flex-basis: calc((100% - 10px) / 3);
+        margin-right: 10px;
+    }
+}
+.tab_wrap li a {
+    transition: none;
+}
+.tab_wrap li:last-of-type {
+    margin-right: 0;
+}
+.tab_wrap li.active {
+    background-color: #041526;
+    color: #fff;
+}
+.tab_item {
+    display: block;
+    font-family: "Shippori Mincho B1", serif;
+}
+.tab_area_flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.area {
+    display: none;
+}
+.area.is_active {
+    display: block;
+}
