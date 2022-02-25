@@ -90,7 +90,7 @@
                         </div>
                         <div class="store_commit">
                             <p class="store_commit_text">
-                                <?php the_field('shop_commitment'); ?>
+                                <?php the_field('commitment'); ?>
                             </p>
                         </div>
 
@@ -133,52 +133,71 @@
                                 <?php endif; ?>
                             </dd>
 
-                            <dt class="deta_detail">メニュー</dt>
-                            <dd>
-                                <?php
-                                $menus = get_field('menu');
-                                foreach ($menus as $key => $menu) {
-                                    echo $menu;
-                                    if ($menu !== end($menus)) {
-                                        echo ' ';
+                            <?php if (get_field('menu')) : ?>
+                                <dt class="deta_detail">メニュー</dt>
+                                <dd>
+                                    <?php
+                                    $menus = get_field('menu');
+                                    foreach ($menus as $key => $menu) {
+                                        echo $menu;
+                                        if ($menu !== end($menus)) {
+                                            echo ' ';
+                                        }
                                     }
-                                }
-                                ?>
-                            </dd>
+                                    ?>
+                                </dd>
+                            <?php endif; ?>
 
                             <dt class="deta_detail">
                                 クレジットカード
                             </dt>
-                            <dd>利用可：
-                                <?php
-                                $credit_cards = get_field('credit_card');
-                                foreach ($credit_cards as $key => $credit_card) {
-                                    echo $credit_card;
-                                    if ($credit_card !== end($credit_cards)) {
-                                        echo '、';
+                            <?php if (get_field('credit_card')) : ?>
+                                <dd>利用可：
+                                    <?php
+                                    $credit_cards = get_field('credit_card');
+                                    foreach ($credit_cards as $key => $credit_card) {
+                                        echo $credit_card;
+                                        if ($credit_card !== end($credit_cards)) {
+                                            echo '、';
+                                        }
                                     }
-                                }
-                                ?>
-                            </dd>
+                                    ?>
+                                </dd>
+                            <?php else : ?>
+                                <dd>
+                                    <?php echo "利用できるクレジットカードはございません。" ?>
+                                </dd>
+                            <?php endif; ?>
 
                             <dt class="deta_detail">電子マネー</dt>
-                            <dd>利用可：
-                                <?php
-                                $pays = get_field('pay');
-                                foreach ($pays as $key => $pay) {
-                                    echo $pay;
-                                    if ($pay !== end($pays)) {
-                                        echo '、';
+                            <?php if (get_field('pay')) : ?>
+                                <dd>利用可：
+
+                                    <?php
+                                    $pays = get_field('pay');
+                                    foreach ($pays as $key => $pay) {
+                                        echo $pay;
+                                        if ($pay !== end($pays)) {
+                                            echo '、';
+                                        }
                                     }
-                                }
-                                ?>
-                            </dd>
+                                    ?>
+                                </dd>
+                            <?php else : ?>
+                                <dd>
+                                    <?php echo "利用できる電子マネーはございません。" ?>
+                                </dd>
+                            <?php endif; ?>
 
-                            <dt class="deta_detail">URL</dt>
-                            <dd><a href="<?php the_field('shopurl'); ?>"><?php the_field('shopurl'); ?></a></dd>
+                            <?php if (get_field('shopurl')) : ?>
+                                <dt class="deta_detail">URL</dt>
+                                <dd><a href="<?php the_field('shopurl'); ?>"><?php the_field('shopurl'); ?></a></dd>
+                            <?php endif; ?>
 
-                            <dt class="deta_detail">Instagram</dt>
-                            <dd><a href="<?php the_field('instagram_url'); ?>"><?php the_field('instagram_url'); ?></a></dd>
+                            <?php if (get_field('instagram_url')) : ?>
+                                <dt class="deta_detail">INSTAGRAM</dt>
+                                <dd><a href="<?php the_field('instagram_url'); ?>"><?php the_field('instagram_url'); ?></a></dd>
+                            <?php endif; ?>
                         </dl>
 
                         <h2>アクセス</h2>
