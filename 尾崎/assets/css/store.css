@@ -8,9 +8,12 @@
 /* コラムカード（インタビュー特集がある場合に）このページ用にレイアウト編集した */
 /* ======================================================== */
 
-/* 店舗名　※h1にするのかどうか */
+/* 店舗名　※h2 */
 .store_card {
     line-height: 1.5;
+}
+.store_card h3 {
+    margin-bottom: 10px;
 }
 .store_name {
     margin-bottom: 10px;
@@ -37,6 +40,11 @@
     align-items: end;
     justify-content: space-between;
     margin-bottom: 16px;
+}
+/* ジャンプ先がヘッダーにかからない高さになるように調整 */
+#store_info {
+    padding-top: 60px;
+    margin-top: -60px;
 }
 .store_info_btn {
     display: inline-block;
@@ -140,11 +148,11 @@
     height: 100px;
 }
 .store_illust_01 {
-    background-image: url(../img/store_staff02.png);
+    background-image: url(../img/master01.svg);
     margin-left: 40px;
 }
 .store_illust_02 {
-    background-image: url(../img/store_menu01.png);
+    background-image: url(../img/store_menu_02.svg);
     margin-left: 30px;
 }
 .store_commit_text {
@@ -194,11 +202,14 @@
     height: 100%;
     object-fit: cover;
 }
-.recommend_store_list {
+dd a:hover {
+    color: #e0591e;
+}
+/* .recommend_store_list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+} */
 .recommend_title {
     font-size: 20px;
     text-align: left;
@@ -216,9 +227,9 @@
 .column2_aside .inner {
     height: 100%;
 }
-.side_search {
+/* .side_search {
     max-width: 480px;
-}
+} */
 .side_title {
     margin-bottom: 50px;
 }
@@ -242,15 +253,18 @@
 .side_lists .list::after {
     content: "\f054";
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    top: 35%;
+    right: 1em;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
+    transition: all 0.5s;
+}
+.side_lists .list:hover:after {
+    transform: translateX(1em);
 }
 
 /* サイドバー横に出現、順番入れ替え */
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
     .column2_flex {
         display: flex;
         flex-wrap: wrap;
@@ -258,11 +272,11 @@
     }
     .column2_article {
         order: 1;
-        flex-basis: 60%;
+        flex-basis: 70%;
     }
     .column2_aside {
         order: 2;
-        flex-basis: 35%;
+        flex-basis: 30%;
     }
     .recommend {
         order: 3;
@@ -274,7 +288,7 @@
     }
 }
 /* サイドバー追従 */
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
     /* 名前変更 */
     aside {
         display: block;
@@ -288,8 +302,8 @@
 
 /* ▼インタビュー記事ある場合（コラムカード:横）▼ */
 .side_column {
-    max-width: 480px;
-    min-width: 362px;
+    /* max-width: 480px;
+    min-width: 362px; */
     background-color: #f6f4ef;
     padding: 10px;
     border-radius: 2px;
@@ -301,7 +315,7 @@
 .side_column_wrap {
     margin: 0 auto;
     /* teisei */
-    min-width: 332px;
+    /* min-width: 332px; */
     background-color: #fff;
 }
 .side_column_wrap + .side_column_wrap {
@@ -311,15 +325,14 @@
     width: 100%;
     display: flex;
 }
-/* 2.21訂正 */
 .side_column_img_wrap {
     width: 44%;
-    min-width: 200px;
+    /* min-width: 200px; */
     overflow: hidden;
 }
 .side_column_meta {
     margin-left: 1%;
-    width: 56%;
+    /* width: 56%; */
     padding: 5px 8px;
 }
 .side_column_date {
