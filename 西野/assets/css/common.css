@@ -3,7 +3,7 @@
 /* ======================================================== */
 /* commonに入っているコンポーネント */
 
-/* h3_見出し（一覧、条件検索で使用）左に緑の縦棒 */
+/* h3_見出し（一覧、条件検索で使用）左に緑の縦棒 →→→各個別ページのCSSに移動 →移動したので消しました */
 /* ヘッダー */
 /* 下層のタイトルエリア */
 /* ハンバーガーメニュー */
@@ -21,6 +21,10 @@ body {
     /* line-height: 2rem; */
     /* 改行用 */
     overflow-wrap: break-word;
+}
+body.fixed {
+    position: fixed;
+    width: 100%;
 }
 
 /* bobyのcolorで行くなら消す */
@@ -56,22 +60,6 @@ h3 {
     font-family: rollerscript-rough, sans-serif;
     font-size: 32px;
     text-align: center;
-}
-
-/* h3_見出し（一覧、条件検索で使用） */
-.area_cate {
-    padding: 5px;
-    font-family: "Shippori Mincho B1";
-    font-size: 15px;
-    border-left: #7b850b 5px solid;
-}
-@media (min-width: 768px) {
-    .area_cate {
-        padding: 5px;
-        font-family: "Shippori Mincho B1";
-        font-size: 24px;
-        border-left: #7b850b 5px solid;
-    }
 }
 
 img {
@@ -135,7 +123,7 @@ section:nth-of-type(even) {
     }
 
     .wrap {
-        max-width: 1300px;
+        max-width: 1100px;
         margin: 0 auto;
     }
     .inner {
@@ -158,7 +146,6 @@ section:nth-of-type(even) {
 /* ヘッダー */
 /* fuji これでいいか？ */
 .header_wrap {
-    /* 確認用の背景色。実際は動画 */
     width: 100%;
     height: 0;
 }
@@ -176,7 +163,7 @@ section:nth-of-type(even) {
 }
 @media (min-width: 768px) {
     .header_wrap_box {
-        max-width: 1300px;
+        max-width: 1100px;
         margin: 0 auto;
         height: 60px;
     }
@@ -209,11 +196,30 @@ section:nth-of-type(even) {
         z-index: 9999;
     }
     .header_nav_item {
+        position: relative;
         padding: 10px 15px;
         font-family: "Shippori Mincho B1", serif;
         font-size: 16px;
         font-weight: bold;
         margin-right: 10px;
+    }
+    /* hoverした時の線 */
+    .header_nav_item::after {
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+    }
+    .header_nav_item:hover:after {
+        bottom: -4px;
+        opacity: 1;
+        visibility: visible;
     }
 }
 @media screen and (min-width: 1280px) {
@@ -267,7 +273,7 @@ section:nth-of-type(even) {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 99;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,15 +331,17 @@ section:nth-of-type(even) {
     bottom: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
+    z-index: 999;
     overflow-y: auto;
+    background-color: #041526;
+    font-family: "Shippori Mincho B1", serif;
 }
 .drower .wrap {
-    background-color: #041526;
-    height: 100vh;
+    /* background-color: #041526; */
+    height: 100%;
 }
 .drower .inner {
-    padding: 110px 20px 0;
+    /* padding: 110px 20px 0; */
     height: 100%;
 }
 .drower_nav_logo {
@@ -368,8 +376,12 @@ section:nth-of-type(even) {
 .drower_nav_list a {
     display: inline-block;
 }
+.drower_nav_list:last-child {
+    padding-bottom: 50px;
+}
 
 /* btn*/
+/* 2.27btn更新 */
 .btn_wrap {
     margin: 40px auto 0;
     max-width: 220px;
@@ -382,17 +394,21 @@ section:nth-of-type(even) {
     background-color: #041526;
     border-radius: 3px;
     text-align: center;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     font-family: "Shippori Mincho B1", serif;
     /* transition: 1s ease-in-out; */
     /* 前田さん希望 */
     transition: 0.3s ease-in-out;
+    color: #fff;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.35);
 }
 .btn_link span {
-    color: #fff;
+    /* color: #fff; */
 }
 .btn_link:hover {
-    opacity: 1;
+    /* opacity: 1; */
+    background-color: #fff;
+    color: #041526;
 }
 @media (min-width: 768px) {
     .btn_wrap {
@@ -416,7 +432,7 @@ footer {
 }
 .footer_nav_item a {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin-bottom: 10px;
     font-family: "Shippori Mincho B1", serif;
     font-size: 18px;
@@ -445,7 +461,7 @@ footer {
     .footer_nav {
         display: flex;
         justify-content: space-around;
-        padding: 24px;
+        padding: 24px 24px 24px 2%;
         border-left: 1px solid #fff;
         text-align: left;
     }
@@ -463,6 +479,58 @@ footer {
     align-items: center;
     margin-bottom: 16px;
     color: #fff;
+}
+
+/* hover時の動き */
+/* 線が下からふわっとver */
+footer a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+footer a::after {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+footer a:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 線が左から伸びるver */
+/* footer a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+footer a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform 0.3s;
+}
+footer a:hover::after {
+    transform: scale(1, 1);
+} */
+
+/* インスタアイコンは線出さない */
+.footer_nav_list:last-of-type > .footer_nav_item:last-of-type a::after {
+    content: none;
 }
 
 /* 保管用 */
