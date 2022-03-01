@@ -150,7 +150,7 @@ section:nth-of-type(even) {
     height: 0;
 }
 .header_inner {
-    /* padding: 0 20px; */
+    padding: 0 20px;
     height: 100%;
 }
 
@@ -158,7 +158,7 @@ section:nth-of-type(even) {
 .header_wrap_box {
     /* opacity: 0; */
     transition: 1s ease-in-out;
-    /* margin-right: -20px; */
+    margin-right: -20px;
     height: 45px;
 }
 @media (min-width: 768px) {
@@ -234,6 +234,7 @@ section:nth-of-type(even) {
 /* 下層のヘッダー */
 .header_wrap.under {
     height: 150px;
+    /* height: clamp(80px, 20vw, 150px); */
     background-image: url(../img/free0.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -242,6 +243,7 @@ section:nth-of-type(even) {
 @media (min-width: 768px) {
     .header_wrap.under {
         height: 300px;
+        /* height: clamp(150px, 20vw, 200px); */
     }
 }
 
