@@ -47,9 +47,10 @@
 </head>
 
 <body>
-    <!-- ▼SP下層ヘッダー▼ -->
+    <?php wp_body_open(); ?>
+    <!-- ▼frontヘッダー▼ -->
     <header>
-        <div class="header_wrap under mainvisual_wrap">
+        <div class="header_wrap">
             <div class="header_inner">
                 <div class="header_wrap_box">
                     <!-- ▼カップicon▼ -->
@@ -79,7 +80,6 @@
                         <span class="header_wrap_box_nav_line"></span>
                     </div>
                 </div>
-                <!-- header_wrap_box -->
             </div>
         </div>
         <!-- /.header_wrap -->
