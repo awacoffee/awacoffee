@@ -17,8 +17,8 @@
 }
 .store_name {
     margin-bottom: 10px;
+    font-size: 20px;
     text-align: left;
-    font-size: calc(20px + 10 * (100vw - 375px) / 725);
 }
 .store_catch {
     margin-bottom: 15px;
@@ -205,7 +205,11 @@
 dd a:hover {
     color: #e0591e;
 }
-
+/* .recommend_store_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+} */
 .recommend_title {
     font-size: 20px;
     text-align: left;
@@ -213,6 +217,7 @@ dd a:hover {
 }
 
 /* ▼サイドバー▼ */
+
 .column2_aside {
     font-family: "Shippori Mincho B1", serif;
 }
@@ -222,26 +227,18 @@ dd a:hover {
 .column2_aside .inner {
     height: 100%;
 }
+/* .side_search {
+    max-width: 480px;
+} */
 .side_title {
     margin-bottom: 50px;
 }
-
-/* h2 */
-.side_title {
+.side_title span {
     display: block;
     margin-bottom: 10px;
     padding-top: 0.8em;
     padding-bottom: 0.8em;
-    font-size: 18px;
-    text-align: left;
-}
-@media (min-width: 768px) {
-    .side_title {
-        font-size: 20px;
-    }
-}
-.side_lists {
-    margin-bottom: 40px;
+    font-size: 20px;
 }
 .side_lists .list a {
     display: block;
@@ -275,11 +272,11 @@ dd a:hover {
     }
     .column2_article {
         order: 1;
-        flex-basis: 65%;
+        flex-basis: 70%;
     }
     .column2_aside {
         order: 2;
-        flex-basis: 35%;
+        flex-basis: 30%;
     }
     .recommend {
         order: 3;
@@ -303,158 +300,81 @@ dd a:hover {
     }
 }
 
-/* ▼インタビュー記事ある場合▼ */
-/* ▼コラムカード▼ */
-
-@media (min-width: 768px) {
-    .side_column {
-        padding: 20px;
-        /* background-color: #f6f4ef; */
-        border-radius: 2px;
-    }
+/* ▼インタビュー記事ある場合（コラムカード:横）▼ */
+.side_column {
+    /* max-width: 480px;
+    min-width: 362px; */
+    background-color: #f6f4ef;
+    padding: 10px;
+    border-radius: 2px;
 }
 .side_column_title {
-    margin-bottom: 5px;
-    padding: 0.3em;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 20px;
 }
-.column_img_wrap img {
-    width: 150px;
-    height: 112.5px;
-    object-fit: contain;
-}
-@media (min-width: 768px) {
-    .column_img_wrap img {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-@media (min-width: 768px) {
-    .card_wrap {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-
-.column_wrap {
+.side_column_wrap {
     margin: 0 auto;
-    border-radius: 3px;
-    transition: 0.3s ease-in-out;
-}
-
-.column_wrap:hover {
-    box-shadow: 0 0 15px #542912;
-}
-@media (min-width: 768px) {
-    .column_wrap {
-        box-shadow: 0px 5px 15px 0px rgb(0 0 0 / 15%);
-    }
-}
-
-.column_wrap + .column_wrap {
-    margin-top: 20px;
-}
-@media (min-width: 768px) {
-    .column_wrap + .column_wrap {
-        margin: 0 0 0 8%;
-    }
-}
-
-.column_inner {
-    display: flex;
-    border-radius: 3px;
-}
-@media (min-width: 768px) {
-    .column_inner {
-        display: block;
-    }
-}
-
-.column_img_wrap {
-    min-width: 100px;
-    border-radius: 3px;
-    overflow: hidden;
-}
-@media (min-width: 768px) {
-    .column_img_wrap {
-        width: 100%;
-        border-radius: 3px 3px 0 0;
-    }
-}
-
-.column_meta {
-    flex-grow: 2;
-    margin-left: 10px;
-    border-bottom: 1px solid #7b850b;
+    /* teisei */
+    /* min-width: 332px; */
     background-color: #fff;
 }
-@media (min-width: 768px) {
-    .column_meta {
-        margin-left: 0;
-        padding: 10px 18px 16px;
-        border-bottom: none;
-    }
+.side_column_wrap + .side_column_wrap {
+    margin-top: 20px;
 }
-
-.column_meta h3 {
+.side_column_inner {
+    width: 100%;
+    display: flex;
+}
+.side_column_img_wrap {
+    width: 44%;
+    /* min-width: 200px; */
+    overflow: hidden;
+}
+.side_column_meta {
+    margin-left: 1%;
+    /* width: 56%; */
+    padding: 5px 8px;
+}
+.side_column_date {
+    font-size: 12px;
+}
+.side_column_meta h3 {
     margin-bottom: 5px;
 }
 @media (min-width: 768px) {
-    .column_meta h3 {
-        font-size: 20px;
-        border-bottom: 1px solid #7b850b;
-        padding-bottom: 15px;
-        margin-bottom: 8px;
+    .side_column_meta h3 {
+        font-size: 16px;
     }
 }
-
-.column_text {
-    display: none;
-    margin-bottom: 10px;
-    font-size: 14px;
+.side_column_text {
+    margin-bottom: 5px;
 }
-@media (min-width: 768px) {
-    .column_text {
-        display: block;
-    }
-}
-
-.categories {
+.side_column_meta .categories {
     display: inline-block;
-
     padding: 0.2em 0.5em;
+    border: 1px solid#542912;
     font-size: 12px;
-    background-color: #f6f4ef;
 }
-@media (min-width: 768px) {
-    .categories {
+@media (min-width: 1100px) {
+    .side_column {
+        padding: 8px;
+    }
+    .side_column_title {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    .side_column_wrap {
+        min-width: 250px;
+    }
+    .side_column_img_wrap {
+        min-width: 145px;
+    }
+    .side_column_meta h3 {
         font-size: 14px;
+        margin-bottom: 3px;
     }
-}
-
-.column_date {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 14px;
-}
-
-.categories_wrap {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-@media (min-width: 768px) {
-    .categories_wrap {
-        margin: 0 0 10px 0;
+    .side_column_text {
+        font-size: 12px;
+        margin-bottom: 3px;
     }
-}
-/* =========== ↓カードにホバーしたときにimgが拡大される =========== */
-
-.stores_card:hover .card_img {
-    transform: scale(1.05);
-}
-figure {
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
 }
