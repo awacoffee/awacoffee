@@ -17,7 +17,6 @@
                         stroke-dasharray: 19803 19805;
                         stroke-dashoffset: 19804;
                         animation: dNMgJvQT_draw 2000ms linear 0ms forwards;
-                        < !-- アニメーションは2秒間 1行上で変更可能 -->
                     }
 
                     @keyframes dNMgJvQT_draw {
@@ -76,7 +75,6 @@
                             stroke-dasharray: 19803 19805;
                             stroke-dashoffset: 19804;
                             animation: dNMgJvQT_draw 2000ms linear 0ms forwards;
-                            < !-- アニメーションは2秒間 1行上で変更可能 -->
                         }
 
                         @keyframes dNMgJvQT_draw {
@@ -316,7 +314,7 @@
 
                     <!-- お店で飲む一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="http://localhost/awacafe-test/purpose/drink/"><span>表示テスト:「店で飲む」一覧を見る</span></a>
+                        <a class="btn_link" href="#!"><span>表示テスト:「店で飲む」一覧を見る</span></a>
                     </div>
                 </div>
 
@@ -480,7 +478,7 @@
 
                     <!-- 豆を買う一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="http://localhost/awacafe-test/purpose/beans/"><span>表示テスト:「豆を買う」一覧を見る</span></a>
+                        <a class="btn_link" href="#!"><span>表示テスト:「豆を買う」一覧を見る</span></a>
                     </div>
                 </div>
             </div>
@@ -502,25 +500,7 @@
                     </p>
                 </div>
                 <div class="card_wrap">
-                    <?php
-                    $args = array(
-                        'post_type' => 'column',
-                        'post_per_page' => 3,
-                        'orderby' => 'rand',
-                    );
-                    $taxquerysp = array('relation' => 'AND');
-
-                    $args['tax_query'] = $taxquerysp;
-
-                    $the_query = new WP_Query($args);
-                    if ($the_query->have_posts()) :
-                    ?>
-                        <?php while ($the_query->have_posts()) : ?>
-                            <?php $the_query->the_post(); ?>
-                            <?php get_template_part('template-parts/loop', 'column'); ?>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <!-- <article class="column_wrap">
+                    <article class="column_wrap">
                         <a href="">
                             <div class="column_inner">
                                 <figure class="column_img_wrap">
@@ -561,11 +541,32 @@
                                 </div>
                             </div>
                         </a>
-                    </article> -->
+                    </article>
+                    <article class="column_wrap">
+                        <a href="">
+                            <div class="column_inner">
+                                <figure class="column_img_wrap">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
+                                </figure>
+                                <div class="column_meta">
+                                    <div class="categories_wrap">
+                                        <time class="column_date" datetime="the_time">2022.03.14</time>
+                                        <ul class="categories">
+                                            <li>コーヒー入門知識</li>
+                                        </ul>
+                                    </div>
+                                    <h3>シングルオリジンとブレンドの違い</h3>
+                                    <div class="column_text">
+                                        <p>自家焙煎にこだわった至福の一杯</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
                 </div>
 
                 <div class="btn_wrap">
-                    <a class="btn_link" href="http://localhost/awacafe-test/column/"><span>コラム一覧を見る</span></a>
+                    <a class="btn_link" href="#!"><span>コラム一覧を見る</span></a>
                 </div>
             </div>
         </div>
@@ -629,10 +630,10 @@
     <div class="bottom_box">
         <ul class="bottom_box_list">
             <li class="bottom_box_item">
-                <a href="http://localhost/awacafe-test/purpose/drink/">店で飲みたい</a>
+                <a href="">店で飲みたい</a>
             </li>
             <li class="bottom_box_item">
-                <a href="http://localhost/awacafe-test/purpose/beans/">豆を買いたい</a>
+                <a href="">豆を買いたい</a>
             </li>
         </ul>
     </div>
