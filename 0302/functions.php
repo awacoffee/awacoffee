@@ -43,8 +43,14 @@ function awacoffee_scripts()
 {
     // リセットCSSを読み込む
     wp_enqueue_style(
-        "awacoffee-reset",
+        "awacoffee-resetcss",
         get_template_directory_uri() . "/assets/css/reset.css",
+    );
+
+    // about.cssのスタイルシートを読み込む
+    wp_enqueue_style(
+        "awacoffee-aboutcss",
+        get_template_directory_uri() . "/assets/css/about.css",
     );
 
     // card.cssのスタイルシートを読み込む
@@ -55,7 +61,7 @@ function awacoffee_scripts()
 
     // column_list.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-column_listcss",
+        "awacoffee-columnlistcss",
         get_template_directory_uri() . "/assets/css/column_list.css",
     );
 
@@ -67,7 +73,7 @@ function awacoffee_scripts()
 
     // common.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-common",
+        "awacoffee-commoncss",
         get_template_directory_uri() . "/assets/css/common.css",
     );
 
@@ -79,7 +85,7 @@ function awacoffee_scripts()
 
     // index.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-index",
+        "awacoffee-indexcss",
         get_template_directory_uri() . "/assets/css/index.css",
     );
 
@@ -95,22 +101,28 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/mypage.css",
     );
 
+    // news_single.cssのスタイルシートを読み込む
+    wp_enqueue_style(
+        "awacoffee-newssinglecss",
+        get_template_directory_uri() . "/assets/css/news_single.css",
+    );
+
     // news.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-newscss",
         get_template_directory_uri() . "/assets/css/news.css",
     );
 
-    // result.cssのスタイルシートを読み込む
+    // privacy.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-result",
-        get_template_directory_uri() . "/assets/css/result.css",
+        "awacoffee-privacycss",
+        get_template_directory_uri() . "/assets/css/privacy.css",
     );
 
-    // s_column.cssのスタイルシートを読み込む
+    // result.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-s_column",
-        get_template_directory_uri() . "/assets/css/s_column.css",
+        "awacoffee-resultcss",
+        get_template_directory_uri() . "/assets/css/result.css",
     );
 
     // search.cssのスタイルシートを読み込む
@@ -119,17 +131,18 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/search.css",
     );
 
+    // store_list.cssのスタイルシートを読み込む
+    wp_enqueue_style(
+        "awacoffee-storelistcss",
+        get_template_directory_uri() . "/assets/css/store_list.css",
+    );
+
     // store.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-store",
+        "awacoffee-storecss",
         get_template_directory_uri() . "/assets/css/store.css",
     );
 
-    // store_list.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-store_list",
-        get_template_directory_uri() . "/assets/css/store_list.css",
-    );
 
     // Awesome fontsのスタイルシートを読み込む
     wp_enqueue_style(
