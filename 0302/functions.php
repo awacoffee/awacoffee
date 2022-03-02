@@ -268,10 +268,25 @@ function my_pre_get_posts($query)
 
     // トップページの場合
     if ($query->is_home()) {
-        $query->set('category_name', 'news');
+        // $query->set('category_name', 'news');
         $query->set('posts_per_page', 3);
-        $query->set('orderby', 'rand');
+        // $query->set('orderby', 'rand');
         return;
     }
 }
 add_action('pre_get_posts', 'my_pre_get_posts');
+
+/**
+ *
+ * google font を読み込む
+ *
+ */
+function add_google_fonts()
+{
+    wp_register_style(
+        'googleFonts',
+        'https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap'
+    );
+    wp_enqueue_style('googleFonts');
+}
+add_action('wp_enqueue_scripts', 'add_google_fonts');
