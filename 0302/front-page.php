@@ -505,10 +505,16 @@
                     <?php
                     $args = array(
                         'post_type' => 'column',
-                        'post_per_page' => 3,
+                        'posts_per_page' => 3,
                         'orderby' => 'rand',
                     );
                     $taxquerysp = array('relation' => 'AND');
+
+                    // $taxquerysp[] = array(
+                    //     'taxonomy' => 'column_category',
+                    //     'terms' => array('beginner', 'blog', 'special'),
+                    //     'field' => 'slug',
+                    // );
 
                     $args['tax_query'] = $taxquerysp;
 
@@ -638,12 +644,14 @@
 
                 <?php
                 // カテゴリーnewsのslug情報を取得
-                $news = get_term_by('slug', 'category_news', 'category');
+                // $news = get_term_by('slug', 'category_news', 'category');
                 // カテゴリーnewsのリンクを取得
-                $news_link = get_term_link($news, 'category');
+                // $news_link = get_term_link($news, 'category');
                 ?>
                 <div class="btn_wrap">
-                    <a class="btn_link" href="<?php echo $news_link; ?>"><span>ニュース一覧を見る</span></a>
+                    <!-- <a class="btn_link" href="<?php // echo $news_link;
+                                                    ?>"><span>ニュース一覧を見る</span></a> -->
+                    <a class="btn_link" href="<?php echo get_permalink(95); ?>"><span>ニュース一覧を見る</span></a>
                 </div>
             </div>
         </div>
