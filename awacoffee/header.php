@@ -37,6 +37,8 @@
     <!-- <link href="<?php echo get_template_directory_uri(); ?>/assets/css/common.css" rel="stylesheet" media="all" /> -->
     <!-- ▼indexページのCSS /ファイル名記載する▼ -->
     <!-- <link href="<?php echo get_template_directory_uri(); ?>/assets/css/index.css" rel="stylesheet" media="all" /> -->
+    <!-- ▼ローディング画面▼ -->
+    <!-- <link rel="stylesheet" href="./assets/css/loding.css" /> -->
 
     <title><?php bloginfo('name'); ?></title>
     <?php
@@ -45,30 +47,28 @@
 </head>
 
 <body>
-    <?php wp_body_open(); ?>
-    <!-- ▼SP-frontヘッダー▼ -->
+    <!-- ▼SP下層ヘッダー▼ -->
     <header>
-        <div id="header_wrap" class="header_wrap">
-
+        <div class="header_wrap under mainvisual_wrap">
             <div class="header_inner">
-                <div id="header_wrap_box" class="header_wrap_box">
+                <div class="header_wrap_box">
                     <!-- ▼カップicon▼ -->
                     <a href="<?php echo home_url(); ?>" class="header_wrap_box_icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/header-icon_white.png" alt="Awa Our Coffee Hourのアイコン" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon.svg" alt="Awa Our Coffee Hourのアイコン" />
                     </a>
                     <nav>
                         <ul class="header_nav_list">
                             <li>
-                                <a href="" class="header_nav_item">条件検索</a>
+                                <a href="<?php echo get_permalink(72); ?>" class="header_nav_item">条件検索</a>
                             </li>
                             <li>
-                                <a href="" class="header_nav_item">コラム</a>
+                                <a href="http://localhost/awacafe-test/column/" class="header_nav_item">コラム</a>
                             </li>
                             <li>
-                                <a href="" class="header_nav_item">コーヒー入門知識</a>
+                                <a href="<?php echo get_permalink(80); ?>" class="header_nav_item">コーヒー入門知識</a>
                             </li>
                             <li>
-                                <a href="" class="header_nav_item">マイページ</a>
+                                <a href="<?php echo get_permalink(74); ?>" class="header_nav_item">マイページ</a>
                             </li>
                         </ul>
                     </nav>
@@ -80,13 +80,6 @@
                     </div>
                 </div>
                 <!-- header_wrap_box -->
-                <div class="header_wrap_logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_aoch.png" alt="" />
-                </div>
-                <div class="header_wrap_catch">
-                    とくしまとコーヒー、<br />
-                    キミと見つけるおいしいひととき
-                </div>
             </div>
         </div>
         <!-- /.header_wrap -->
@@ -102,27 +95,30 @@
                         </div>
                         <ul class="drower_nav_box">
                             <li>
-                                <a href="" class="drower_nav_box_item">店で飲みたい</a>
+                                <a href="http://localhost/awacafe-test/purpose/drink/" class="drower_nav_box_item">店で飲みたい</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_box_item">豆を買いたい</a>
+                                <a href="http://localhost/awacafe-test/purpose/beans/" class="drower_nav_box_item">豆を買いたい</a>
                             </li>
                         </ul>
                         <ul class="drower_nav_list">
                             <li>
-                                <a href="" class="drower_nav_item">条件検索</a>
+                                <a href="<?php echo get_permalink(72); ?>" class="drower_nav_item">条件検索</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_item">コラム</a>
+                                <a href="http://localhost/awacafe-test/column/" class="drower_nav_item">コラム</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_item">コーヒー入門知識</a>
+                                <a href="<?php echo get_permalink(80); ?>" class="drower_nav_item">コーヒー入門知識</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_item">マイページ</a>
+                                <a href="<?php echo get_permalink(74); ?>" class="drower_nav_item">マイページ</a>
                             </li>
                             <li>
                                 <a href="" class="drower_nav_item">お問い合わせ</a>
+                            </li>
+                            <li>
+                                <a href="" class="drower_nav_item"><i class="fa-brands fa-instagram fa-2x"></i></a>
                             </li>
                         </ul>
                     </nav>
