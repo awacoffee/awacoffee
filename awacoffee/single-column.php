@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+
 <main class="column_page" id="column_under">
 
     <!-- ▼タイトルエリア▼ -->
@@ -23,73 +24,33 @@
                 <div class="inner">
 
                     <!-- コラム記事詳細タイトル -->
-                    <div class="s_column_title_wrap">
-                        <h1 class="column_title">
-                            コーヒーショップでの過ごし方①おひとり様編
-                        </h1>
-                        <ul class="tags">
-                            <li class="tag">
-                                <a href="">自家焙煎</a>
-                            </li>
-                            <li class="tag">
-                                <a href="">自家焙煎</a>
-                            </li>
-                            <li class="tag">
-                                <a href="">自家焙煎</a>
-                            </li>
-                            <li class="tag">
-                                <a href="">自家焙煎</a>
-                            </li>
-                        </ul>
-                        <p class="s_column_title_text">
-                            ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります
-                        </p>
-                    </div>
 
-                    <div class="s_column_card">
-                        <h2 class="s_column_subtitle">読書をする</h2>
-                        <figure class="s_column_img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/store-img01.jpg" alt="" />
-                        </figure>
-                        <figcaption>写真のキャプションが入ります</figcaption>
-                        <p class="s_column_text">
-                            ここにテキストが入りますここにテキストが入りますここにテキストが入ります<strong>太字&色CSSテスト</strong>ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります
-                        </p>
-                    </div>
-                    <div class="s_column_card">
-                        <h2 class="s_column_subtitle">読書をする</h2>
-                        <figure class="s_column_img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/store-img01.jpg" alt="" />
-                        </figure>
-                        <figcaption>写真のキャプションが入ります</figcaption>
-                        <ul class="s_column_text box">
-                            <li>リストスタイルのテスト</li>
-                            <li>枠線のテスト</li>
-                            <li>リストスタイルのテスト</li>
-                            <li>リストスタイルのテスト</li>
-                        </ul>
-                        <p class="s_column_text">
-                            ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります
-                        </p>
-                    </div>
-                    <div class="s_column_card">
-                        <h2 class="s_column_subtitle">読書をする</h2>
-                        <figure class="s_column_img">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/store-img01.jpg" alt="" />
-                        </figure>
-                        <figcaption>写真のキャプションが入ります</figcaption>
-                        <h3>見出しLv.3のテスト</h3>
-                        <p class="s_column_text">
-                            ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります
-                        </p>
-                    </div>
-                    <!-- 最後のカードだけまとめ記事 -->
-                    <div class="s_column_card">
-                        <h2 class="s_column_subtitle">まとめ</h2>
-                        <p class="s_column_text">
-                            ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります
-                        </p>
-                    </div>
+                    <?php if (have_posts()) : ?>
+                        <?php while (have_posts()) : the_post(); ?>
+
+                            <div class="s_column_title_wrap">
+                                <h1 class="column_title">
+                                    <?php the_title(); ?>
+                                </h1>
+                                <ul class="tags">
+                                    <li class="tag">
+                                        <a href="">自家焙煎</a>
+                                    </li>
+                                    <li class="tag">
+                                        <a href="">自家焙煎</a>
+                                    </li>
+                                    <li class="tag">
+                                        <a href="">自家焙煎</a>
+                                    </li>
+                                    <li class="tag">
+                                        <a href="">自家焙煎</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php the_content(); ?>
+
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -186,32 +147,12 @@
                             </form>
                         </aside>
                         <!-- コラムカテゴリ -->
-                        <aside>
-                            <h2 class="side_title">コラムカテゴリ一覧</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">入門知識</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">ブログ</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">特集</a>
-                                </li>
-                            </ul>
-                        </aside>
+
+                        <?php get_sidebar('categories') ?>
+
                         <!-- ニュース -->
-                        <aside>
-                            <h2 class="side_title">ニュース</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">おしらせ</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">更新情報</a>
-                                </li>
-                            </ul>
-                        </aside>
+
+                        <?php get_sidebar('news') ?>
                     </div>
 
                 </div>

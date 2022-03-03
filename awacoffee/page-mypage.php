@@ -1,6 +1,16 @@
+<?php
+if (isset($_COOKIE['favoritepagelist'])) {
+  $favoritepagelist = $_COOKIE['favoritepagelist'];
+};
+// print_r($favoritepagelist);
+
+$favoritepagelist = explode(',', $favoritepagelist);
+// print_r($favoritepagelist);
+?>
+
 <?php get_header(); ?>
 
-<main>
+<main id="mypage_under">
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">
@@ -15,150 +25,53 @@
   <section class="my_page">
     <div class="wrap">
       <div class="inner">
-        <div class="number_of_searches" style="font-size: 60px">
+        <h2>ブックマーク</h2>
+        <div class="number_of_searches" style="font-size: 24px">
           <p>6件</p>
         </div>
-        <h2>ブックマーク</h2>
         <div class="store_area">
-          <div class="sp_stores_cars store_lists">
-            <article class="stores_card">
-              <img class="card_img" src="./assets/img/test_01.jpg" alt="" />
-              <div class="text_inner">
-                <h3 class="stores_name">①とよとみ珈琲</h3>
-                <p class="stores_catch">自家焙煎にこだわった至福の一杯</p>
-                <div class="stores_tags">
-                  <p class="stores_tag">#勉強</p>
-                  <p class="stores_tag">#デート</p>
-                </div>
-              </div>
-            </article>
-            <article class="stores_card">
-              <img class="card_img" src="./assets/img/test_02.jpg" alt="" />
-              <div class="text_inner">
-                <h3 class="stores_name">②とよとみ珈琲</h3>
-                <p class="stores_catch">自家焙煎にこだわった至福の一杯</p>
-                <div class="stores_tags">
-                  <p class="stores_tag">#勉強</p>
-                  <p class="stores_tag">#デート</p>
-                </div>
-              </div>
-            </article>
-            <article class="stores_card">
-              <img class="card_img" src="./assets/img/test_03.jpg" alt="" />
-              <div class="text_inner">
-                <h3 class="stores_name">③とよとみ珈琲</h3>
-                <p class="stores_catch">自家焙煎にこだわった至福の一杯</p>
-                <div class="stores_tags">
-                  <p class="stores_tag">#勉強</p>
-                  <p class="stores_tag">#デート</p>
-                </div>
-              </div>
-            </article>
-            <article class="stores_card">
-              <img class="card_img" src="./assets/img/test_04.jpg" alt="" />
-              <div class="text_inner">
-                <h3 class="stores_name">④とよとみ珈琲</h3>
-                <p class="stores_catch">自家焙煎にこだわった至福の一杯</p>
-                <div class="stores_tags">
-                  <p class="stores_tag">#勉強</p>
-                  <p class="stores_tag">#デート</p>
-                </div>
-              </div>
-            </article>
+          <div class="sp_stores_cards store_lists">
+
+            <?php
+            $args = array(
+              'post_type' => 'shop',
+              'post_per_page' => -1,
+              'post__in' => $favoritepagelist,
+            );
+            $taxquerysp = array('relation' => 'AND');
+
+            $args['tax_query'] = $taxquerysp;
+
+            $the_query = new WP_Query($args);
+            if ($the_query->have_posts()) :
+            ?>
+              <?php while ($the_query->have_posts()) : ?>
+                <?php $the_query->the_post(); ?>
+                <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
+
           </div>
           <div class="pc_stores_cards store_lists">
-            <article class="stores_card">
-              <div class="front_card">
-                <figure class="stores_img">
-                  <img src="./assets/img/test_01.jpg" alt="" />
-                  <div class="stores_tags">
-                    <p class="stores_tag">シチュエーション別</p>
-                    <p class="stores_tag">アイウエオ</p>
-                  </div>
-                </figure>
-                <div class="text_inner">
-                  <h3 class="stores_name">①とよとみ珈琲</h3>
-                  <p class="stores_catch">
-                    自家焙煎にこだわった至福の一杯 自家焙煎に
-                  </p>
-                </div>
-              </div>
-              <div class="back_card">
-                <p class="card_text">
-                  ここにテキストが入ります ここにテキストが入ります
-                  ここにテキストが入ります ここにテキストが入ります
-                </p>
-              </div>
-            </article>
-            <article class="stores_card">
-              <div class="front_card">
-                <figure class="stores_img">
-                  <img src="./assets/img/test_02.jpg" alt="" />
-                  <div class="stores_tags">
-                    <p class="stores_tag">シチュエーション別</p>
-                    <p class="stores_tag">アイウエオ</p>
-                  </div>
-                </figure>
-                <div class="text_inner">
-                  <h3 class="stores_name">②とよとみ珈琲</h3>
-                  <p class="stores_catch">
-                    自家焙煎にこだわった至福の一杯 自家焙煎に
-                  </p>
-                </div>
-              </div>
-              <div class="back_card">
-                <p class="card_text">
-                  ここにテキストが入ります ここにテキストが入ります
-                  ここにテキストが入ります ここにテキストが入ります
-                </p>
-              </div>
-            </article>
-            <article class="stores_card">
-              <div class="front_card">
-                <figure class="stores_img">
-                  <img src="./assets/img/test_03.jpg" alt="" />
-                  <div class="stores_tags">
-                    <p class="stores_tag">シチュエーション別</p>
-                    <p class="stores_tag">アイウエオ</p>
-                  </div>
-                </figure>
-                <div class="text_inner">
-                  <h3 class="stores_name">③とよとみ珈琲</h3>
-                  <p class="stores_catch">
-                    自家焙煎にこだわった至福の一杯 自家焙煎に
-                  </p>
-                </div>
-              </div>
-              <div class="back_card">
-                <p class="card_text">
-                  ここにテキストが入ります ここにテキストが入ります
-                  ここにテキストが入ります ここにテキストが入ります
-                </p>
-              </div>
-            </article>
-            <article class="stores_card">
-              <div class="front_card">
-                <figure class="stores_img">
-                  <img src="./assets/img/test_04.jpg" alt="" />
-                  <div class="stores_tags">
-                    <p class="stores_tag">シチュエーション別</p>
-                    <p class="stores_tag">アイウエオ</p>
-                  </div>
-                </figure>
-                <div class="text_inner">
-                  <h3 class="stores_name">④とよとみ珈琲</h3>
-                  <p class="stores_catch">
-                    自家焙煎にこだわった至福の一杯 自家焙煎に
-                  </p>
-                </div>
-              </div>
-              <div class="back_card">
-                <p class="card_text">
-                  ここにテキストが入ります ここにテキストが入ります
-                  ここにテキストが入ります ここにテキストが入ります
-                </p>
-              </div>
-            </article>
+
+            <?php
+            $args = array(
+              'post_type' => 'shop',
+              'post_per_page' => -1,
+              'post__in' => $favoritepagelist,
+            );
+            $taxquerysp = array('relation' => 'AND');
+
+            $args['tax_query'] = $taxquerysp;
+
+            $the_query = new WP_Query($args);
+            if ($the_query->have_posts()) :
+            ?>
+              <?php while ($the_query->have_posts()) : ?>
+                <?php $the_query->the_post(); ?>
+                <?php get_template_part('template-parts/loop', 'area'); ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
         <!-- store_area -->

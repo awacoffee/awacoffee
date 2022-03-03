@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<!-- <?php
+        $pageid = get_the_ID();
+        print_r($pageid);
+        ?> -->
+
 <main id="column_list_under">
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
@@ -38,249 +43,29 @@
 
                 <div id="tisiki" class="cards_wrap is_column_active">
                     <div class="card_wrap">
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                </div>
-                <div id="toku" class="cards_wrap">
-                    <div class="card_wrap">
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                </div>
-                <div id="bulog" class="cards_wrap">
-                    <div class="card_wrap">
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+                        <?php
+                        $args = array(
+                            'post_type' => 'column',
+                            'posts_per_page' => -1,
+                            'orderby' => 'rand',
+                        );
+                        $taxquerysp = array('relation' => 'AND');
+
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query = new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : ?>
+                                <?php $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'column'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <!-- inner -->
+        </div>
+        <!-- inner -->
         </div>
         <!-- wrap -->
     </section>

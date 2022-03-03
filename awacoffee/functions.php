@@ -130,6 +130,11 @@ function awacoffee_scripts()
         wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
     }
 
+    // page-thanks用のCSS
+    if (is_page('thanks')) {
+        wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
+    }
+
     // archive-column用のCSS
     if (is_post_type_archive('column')) {
         wp_enqueue_style('column_list', get_template_directory_uri() . '/assets/css/column_list.css');

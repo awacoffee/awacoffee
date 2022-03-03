@@ -160,7 +160,7 @@
                 <!-- ▼タブ切り替え：店で飲むエリア▼ -->
                 <div id="tab_drink" class="area is_active">
                     <div class="tab_area_flex">
-                        <div class="sp_stores_cars">
+                        <div class="sp_stores_cards">
                             <article class="stores_card">
                                 <a href="https://awa-coffee.com/shop/takashima/">
                                     <figure>
@@ -230,7 +230,7 @@
                                 </a>
                             </article>
                         </div>
-                        <!-- sp_stores_cars -->
+                        <!-- sp_stores_cards -->
                         <div class="pc_stores_cards">
                             <article class="stores_card">
                                 <a href="https://awa-coffee.com/shop/takashima/">
@@ -323,7 +323,7 @@
                 <!-- ▼タブ切り替え：豆を買うエリア▼ -->
                 <div id="tab_beans" class="area">
                     <div class="tab_area_flex">
-                        <div class="sp_stores_cars">
+                        <div class="sp_stores_cards">
                             <article class="stores_card">
                                 <a href="#">
                                     <figure>
@@ -393,7 +393,7 @@
                                 </a>
                             </article>
                         </div>
-                        <!-- sp_stores_cars -->
+                        <!-- sp_stores_cards -->
                         <div class="pc_stores_cards">
                             <article class="stores_card">
                                 <a href="#">
@@ -475,7 +475,7 @@
                             </article>
                             <!-- </div> -->
                         </div>
-                        <!-- pc_stores_cars -->
+                        <!-- pc_stores_cards -->
                     </div>
 
                     <!-- 豆を買う一覧に飛ばす -->

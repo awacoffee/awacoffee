@@ -116,7 +116,7 @@ input[type="submit"] {
 
 .area_1 {
     top: 25%;
-    right: -16px;
+    right: 0px;
 }
 /* 文字数が多いため */
 .area_1::before {
