@@ -39,6 +39,7 @@ function my_acf_google_map_api($api)
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+
 function awacoffee_scripts()
 {
     // リセットCSSを読み込む
@@ -47,10 +48,10 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/reset.css",
     );
 
-    // about.cssのスタイルシートを読み込む
+    // common.cssのスタイルシートを読み込む
     wp_enqueue_style(
-        "awacoffee-aboutcss",
-        get_template_directory_uri() . "/assets/css/about.css",
+        "awacoffee-commoncss",
+        get_template_directory_uri() . "/assets/css/common.css",
     );
 
     // card.cssのスタイルシートを読み込む
@@ -59,52 +60,10 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/card.css",
     );
 
-    // column_list.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-columnlistcss",
-        get_template_directory_uri() . "/assets/css/column_list.css",
-    );
-
-    // column.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-columncss",
-        get_template_directory_uri() . "/assets/css/column.css",
-    );
-
-    // common.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-commoncss",
-        get_template_directory_uri() . "/assets/css/common.css",
-    );
-
-    // contact.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-contactcss",
-        get_template_directory_uri() . "/assets/css/contact.css",
-    );
-
-    // index.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-indexcss",
-        get_template_directory_uri() . "/assets/css/index.css",
-    );
-
     // loding.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-lodingcss",
         get_template_directory_uri() . "/assets/css/loding.css",
-    );
-
-    // mypage.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-mypagecss",
-        get_template_directory_uri() . "/assets/css/mypage.css",
-    );
-
-    // news_single.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-newssinglecss",
-        get_template_directory_uri() . "/assets/css/news_single.css",
     );
 
     // news.cssのスタイルシートを読み込む
@@ -137,11 +96,50 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/store_list.css",
     );
 
-    // store.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-storecss",
-        get_template_directory_uri() . "/assets/css/store.css",
-    );
+    // front-page用のCSS
+    if (is_front_page()) {
+        wp_enqueue_style('index', get_template_directory_uri() . '/assets/css/index.css');
+    }
+
+    // single-column用のCSS
+    if (is_singular('column')) {
+        wp_enqueue_style('column', get_template_directory_uri() . '/assets/css/column.css');
+    }
+
+    // single-shop用のCSS
+    if (is_singular('shop')) {
+        wp_enqueue_style('store', get_template_directory_uri() . '/assets/css/store.css');
+    }
+
+    // single用のCSS
+    if (is_single()) {
+        wp_enqueue_style('news_single', get_template_directory_uri() . '/assets/css/news_single.css');
+    }
+
+    // page-mypage用のCSS
+    if (is_page('maypage')) {
+        wp_enqueue_style('mypage', get_template_directory_uri() . '/assets/css/mypage.css');
+    }
+
+    // page-search用のCSS
+    if (is_page('search')) {
+        wp_enqueue_style('search', get_template_directory_uri() . '/assets/css/search.css');
+    }
+
+    // page-about用のCSS
+    if (is_page('about')) {
+        wp_enqueue_style('about', get_template_directory_uri() . '/assets/css/about.css');
+    }
+
+    // page-contact用のCSS
+    if (is_page('contact')) {
+        wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
+    }
+
+    // archive-column用のCSS
+    if (is_post_type_archive('column')) {
+        wp_enqueue_style('column_list', get_template_directory_uri() . '/assets/css/column_list.css');
+    }
 
 
     // Awesome fontsのスタイルシートを読み込む
@@ -253,6 +251,7 @@ function awacoffee_scripts()
     );
 }
 add_action('wp_enqueue_scripts', 'awacoffee_scripts');
+
 
 // function my_acf_google_map_api($api)
 // {
