@@ -84,12 +84,6 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/result.css",
     );
 
-    // search.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-searchcss",
-        get_template_directory_uri() . "/assets/css/search.css",
-    );
-
     // store_list.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-storelistcss",
@@ -302,3 +296,29 @@ function add_google_fonts()
     wp_enqueue_style('googleFonts');
 }
 add_action('wp_enqueue_scripts', 'add_google_fonts');
+
+/*絞り込み検索のショートコード*/
+function mysearch_original()
+{
+    ob_start();
+    get_template_part('template-parts/mysearch');
+    return ob_get_clean();
+}
+add_shortcode('search', 'mysearch_original');
+
+/*-------------------------------------------
+以下のワーニング回避：URLパラメータが配列だと怒られるので、文字列に変換
+Warning: urlencode() expects parameter 1 to be string, array given
+---------------------------------------------*/
+function my_query_string($q)
+{
+    foreach (get_taxonomies(array(), 'objects') as $taxonomy => $t) {
+        if ($t->query_var && !empty($q[$t->query_var])) {
+            if (is_array($q[$t->query_var])) {
+                $q[$t->query_var] = implode(',', $q[$t->query_var]);
+            }
+        }
+    }
+    return $q;
+}
+add_filter('request', 'my_query_string', 1);
