@@ -84,12 +84,6 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/result.css",
     );
 
-    // search.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-searchcss",
-        get_template_directory_uri() . "/assets/css/search.css",
-    );
-
     // store_list.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-storelistcss",
@@ -133,6 +127,11 @@ function awacoffee_scripts()
 
     // page-contact用のCSS
     if (is_page('contact')) {
+        wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
+    }
+
+    // page-thanks用のCSS
+    if (is_page('thanks')) {
         wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
     }
 
