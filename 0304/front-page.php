@@ -285,14 +285,14 @@
                         <!-- </div> -->
                     </div>
                     <!-- pc_stores_cards -->
-                </div>
 
-                <!-- 豆を買う一覧に飛ばす -->
-                <div class="btn_wrap">
-                    <a class="btn_link" href="https://awa-coffee.com/purpose/beans/"><span>表示テスト:「豆を買う」一覧を見る</span></a>
+
+                    <!-- 豆を買う一覧に飛ばす -->
+                    <div class="btn_wrap">
+                        <a class="btn_link" href="https://awa-coffee.com/purpose/beans/"><span>表示テスト:「豆を買う」一覧を見る</span></a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- 店舗情報 -->
