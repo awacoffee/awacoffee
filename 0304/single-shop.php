@@ -336,14 +336,35 @@ if (isset($_POST['favoritepageid'])) {
                                         'post_type' => 'shop',
                                         'posts_per_page' => 3,
                                         'orderby' => 'rand',
+                                        'post__not_in' => array($post->ID),
                                     );
                                     // エリアで絞り込む
                                     $areas = array_shift(get_the_terms($post->ID, 'area'));
-                                    $taxquerysp = array('relation' => 'OR');
-                                    $taxquerysp[] = array(
-                                        'taxonomy' => 'area',
-                                        'terms' => $areas->slug,
-                                        'field' => 'slug',
+                                    $purposies = array_shift(get_the_terms($post->ID, 'purpose'));
+                                    $situations = array_shift(get_the_terms($post->ID, 'situation'));
+                                    $serviceies = array_shift(get_the_terms($post->ID, 'services'));
+                                    $taxquerysp = array(
+                                        'relation' => 'OR',
+                                        array(
+                                            'taxonomy' => 'area',
+                                            'terms' => $areas->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'purpose',
+                                            'terms' => $purposies->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'situation',
+                                            'terms' => $situations->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'services',
+                                            'terms' => $serviceies->slug,
+                                            'field' => 'slug',
+                                        )
                                     );
                                     $args['tax_query'] = $taxquerysp;
 
