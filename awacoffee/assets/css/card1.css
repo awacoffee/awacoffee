@@ -12,9 +12,9 @@
 .column_tab_wrap li.column_active a {
   border-bottom: #5d0f0f 1px solid;
 }
-.cards_wrap {
+/* .cards_wrap {
   display: none;
-}
+} */
 .cards_wrap.is_column_active {
   display: block;
 }
@@ -181,7 +181,7 @@ figure {
 }
 
 .sp_stores_cards .stores_catch {
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
   font-size: 14px;
   border-bottom: solid 1px #542912;
 }

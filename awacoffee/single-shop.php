@@ -68,20 +68,22 @@ if (isset($_POST['favoritepageid'])) {
                             <?php the_field('catchphrase'); ?>
                         </p>
                         <!-- ▼タグ・BM・いいね▼ -->
-                        <ul class="store_tags">
-                            <li class="store_tag">
-                                <a href="">タグ</a>
-                            </li>
-                            <li class="store_tag">
-                                <a href="">タグ</a>
-                            </li>
-                            <li class="store_tag">
-                                <a href="">タグ</a>
-                            </li>
-                            <li class="store_tag">
-                                <a href="">タグ</a>
-                            </li>
-                        </ul>
+                        <?php
+                        //エリアのターム名表示
+                        $area_slug = 'area';
+                        $area_terms = wp_get_object_terms($post->ID, $area_slug);
+                        //シチュエーションのターム名表示
+                        $situation_slug = 'situation';
+                        $situation_terms = wp_get_object_terms($post->ID, $situation_slug);
+                        echo '<ul class="store_tags">';
+                        foreach ($area_terms as $area_term) {
+                            echo '<li class="store_tag">' . $area_term->name . '</li>';
+                        }
+                        foreach ($situation_terms as $situation_term) {
+                            echo '<li class="store_tag">' . $situation_term->name . '</li>';
+                        }
+                        echo '</ul>';
+                        ?>
                         <div class="store_fun_jump">
                             <a href="#store_info" class="store_info_btn">店舗情報へジャンプ</a>
                             <div class="store_fun">
@@ -116,6 +118,7 @@ if (isset($_POST['favoritepageid'])) {
                                             margin-right: 20px;
                                             background-color: transparent;
                                         }
+
                                         .favorite__btn .fa-bookmark {
                                             /* padding-left: 30px;
                                             padding-right: 10px; */
@@ -325,78 +328,53 @@ if (isset($_POST['favoritepageid'])) {
                     <h2 class="recommend_title">あなたへのおすすめ</h2>
                     <ul class="recommend_store_list">
                         <div class="stores_wrap_card2">
-                            <div class="stores_wrap_card_img2"></div>
-                            <div class="store_card_inner2">
-                                <div class="stores_wrap_card_name2">
-                                    とよとみ珈琲
-                                </div>
-                                <div class="stores_wrap_card_catch2">
-                                    自家焙煎にこだわった至福の一杯
-                                </div>
-                                <div class="stores_wrap_card_tags2">
-                                    <div class="stores_wrap_card_tag2">
-                                        #勉強
-                                    </div>
-                                    <div class="stores_wrap_card_tag2">
-                                        #デート
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stores_wrap_card2">
-                            <div class="stores_wrap_card_img2"></div>
-                            <div class="store_card_inner2">
-                                <div class="stores_wrap_card_name2">
-                                    とよとみ珈琲
-                                </div>
-                                <div class="stores_wrap_card_catch2">
-                                    自家焙煎にこだわった至福の一杯
-                                </div>
-                                <div class="stores_wrap_card_tags2">
-                                    <div class="stores_wrap_card_tag2">
-                                        #勉強
-                                    </div>
-                                    <div class="stores_wrap_card_tag2">
-                                        #デート
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stores_wrap_card2">
-                            <div class="stores_wrap_card_img2"></div>
-                            <div class="store_card_inner2">
-                                <div class="stores_wrap_card_name2">
-                                    とよとみ珈琲
-                                </div>
-                                <div class="stores_wrap_card_catch2">
-                                    自家焙煎にこだわった至福の一杯
-                                </div>
-                                <div class="stores_wrap_card_tags2">
-                                    <div class="stores_wrap_card_tag2">
-                                        #勉強
-                                    </div>
-                                    <div class="stores_wrap_card_tag2">
-                                        #デート
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stores_wrap_card2">
-                            <div class="stores_wrap_card_img2"></div>
-                            <div class="store_card_inner2">
-                                <div class="stores_wrap_card_name2">
-                                    とよとみ珈琲
-                                </div>
-                                <div class="stores_wrap_card_catch2">
-                                    自家焙煎にこだわった至福の一杯
-                                </div>
-                                <div class="stores_wrap_card_tags2">
-                                    <div class="stores_wrap_card_tag2">
-                                        #勉強
-                                    </div>
-                                    <div class="stores_wrap_card_tag2">
-                                        #デート
-                                    </div>
+                            <div class="box">
+                                <div class="pc_stores_cards store_lists">
+                                    <?php
+                                    // メニューの投稿タイプ
+                                    $args = array(
+                                        'post_type' => 'shop',
+                                        'posts_per_page' => 3,
+                                        'orderby' => 'rand',
+                                        'post__not_in' => array($post->ID),
+                                    );
+                                    // エリアで絞り込む
+                                    $areas = array_shift(get_the_terms($post->ID, 'area'));
+                                    $purposies = array_shift(get_the_terms($post->ID, 'purpose'));
+                                    $situations = array_shift(get_the_terms($post->ID, 'situation'));
+                                    $serviceies = array_shift(get_the_terms($post->ID, 'services'));
+                                    $taxquerysp = array(
+                                        'relation' => 'OR',
+                                        array(
+                                            'taxonomy' => 'area',
+                                            'terms' => $areas->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'purpose',
+                                            'terms' => $purposies->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'situation',
+                                            'terms' => $situations->slug,
+                                            'field' => 'slug',
+                                        ),
+                                        array(
+                                            'taxonomy' => 'services',
+                                            'terms' => $serviceies->slug,
+                                            'field' => 'slug',
+                                        )
+                                    );
+                                    $args['tax_query'] = $taxquerysp;
+
+                                    $the_query =  new WP_Query($args);
+                                    if ($the_query->have_posts()) :
+                                    ?>
+                                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                            <?php get_template_part('template-parts/loop', 'area'); ?>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -410,80 +388,21 @@ if (isset($_POST['favoritepageid'])) {
         <!-- recommend -->
 
         <!-- ▼サイドバー▼ -->
-        <!-- ▼サイドバー▼ -->
         <div class="column2_aside">
             <div class="wrap">
                 <div class="inner">
                     <div class="side_scrool">
-                        <!-- エリアで探す -->
-                        <!-- <aside>
-                            <h2 class="side_title">エリアで探す</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">徳島市</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">東部</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">西部</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">南部</a>
-                                </li>
-                            </ul>
-                        </aside> -->
+
                         <?php get_sidebar('areas'); ?>
 
-                        <!-- 目的から探す -->
-                        <!-- <aside>
-                            <h2 class="side_title">目的から探す</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">お店で飲みたい</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">豆を買いたい</a>
-                                </li>
-                            </ul>
-                        </aside> -->
                         <?php get_sidebar('purpose'); ?>
 
-                        <!-- ▼インタビュー記事がある場合に表示▼ -->
-                        <!-- <aside class="side_column"> -->
-                            <!-- <h2 class="side_column_title">このお店のインタビュー</h2> -->
-                            <!-- <h2 class="side_title side_column_title">
-                                このお店のインタビュー
-                            </h2>
-                            <article class="column_wrap">
-                                <a href="">
-                                    <div class="column_inner">
-                                        <figure class="column_img_wrap">
-                                            <img src="./assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                        </figure>
-                                        <div class="column_meta">
-                                            <div class="categories_wrap">
-                                                <time class="column_date" datetime="the_time">2022.03.14</time>
-                                                <ul class="categories">
-                                                    <li>
-                                                        コーヒー入門知識
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <h3>
-                                                シングルオリジンとブレンドの違い
-                                            </h3>
-                                            <div class="column_text">
-                                                <p>
-                                                    自家焙煎にこだわった至福の一杯
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </aside> -->
-                        <!-- side_column -->
+                        <!-- 詳しい条件から探す -->
+                        <aside>
+                            <div class="store_page_btn_wrap">
+                                <a class="store_page_btn_link" href="<?php echo get_permalink(243); ?>"><span><i class="fa-solid fa-magnifying-glass"></i>詳しい条件から探す</span></a>
+                            </div>
+                        </aside>
                     </div>
                 </div>
                 <!-- inner -->

@@ -46,10 +46,10 @@
 
           <nav class="news_page_navigation">
             <div class="news_page_prev">
-              <a href="">《 前の記事</a>
+              <?php previous_post_link('%link', '《 前の記事'); ?>
             </div>
             <div class="news_page_next">
-              <a href="">次の記事 》</a>
+              <?php next_post_link('%link', '次の記事 》') ; ?>
             </div>
           </nav>
         </div>

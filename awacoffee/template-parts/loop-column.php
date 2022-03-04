@@ -12,10 +12,12 @@
                         <?php echo get_the_term_list($post->ID, 'column_category'); ?>
                     </ul>
                 </div>
-                <h3><?php the_title(); ?></h3>
-                <div class="column_text">
-                    <p><?php the_excerpt(); ?></p>
-                </div>
+                <a href="<?php the_permalink(); ?>">
+                    <h3><?php the_title(); ?></h3>
+                    <div class="column_text">
+                        <p><?php the_excerpt(); ?></p>
+                    </div>
+                </a>
             </div>
         </div>
     </a>

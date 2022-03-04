@@ -61,7 +61,11 @@
         // Create marker instance.
         var marker = new google.maps.Marker({
             position: latLng,
-            map: map
+            map: map,
+            icon: {
+                url: 'http://awa-coffee.com/wp-content/themes/awacoffee/assets/img/01.png',
+                scaledSize: new google.maps.Size(50, 50)
+            }
         });
 
         // Append to reference for later use.

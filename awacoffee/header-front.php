@@ -60,16 +60,19 @@
                     <nav>
                         <ul class="header_nav_list">
                             <li>
-                                <a href="<?php echo get_permalink(72); ?>" class="header_nav_item">条件検索</a>
+                                <a href="<?php echo get_permalink(243); ?>" class="header_nav_item">条件検索</a>
                             </li>
                             <li>
-                                <a href="http://localhost/awacafe-test/column/" class="header_nav_item">コラム</a>
+                                <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="header_nav_item">コーヒー入門知識</a>
                             </li>
                             <li>
-                                <a href="<?php echo get_permalink(80); ?>" class="header_nav_item">コーヒー入門知識</a>
+                                <a href="<?php echo home_url('/column_category/blog/'); ?>" class="header_nav_item">ブログ</a>
                             </li>
                             <li>
-                                <a href="<?php echo get_permalink(74); ?>" class="header_nav_item">マイページ</a>
+                                <a href="<?php echo home_url('/column_category/special/'); ?>" class="header_nav_item">特集</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo get_permalink(245); ?>" class="header_nav_item">マイページ</a>
                             </li>
                         </ul>
                     </nav>
@@ -95,30 +98,33 @@
                         </div>
                         <ul class="drower_nav_box">
                             <li>
-                                <a href="http://localhost/awacafe-test/purpose/drink/" class="drower_nav_box_item">店で飲みたい</a>
+                                <a href="<?php echo home_url('/purpose/drink/'); ?>" class="drower_nav_box_item">店で飲みたい</a>
                             </li>
                             <li>
-                                <a href="http://localhost/awacafe-test/purpose/beans/" class="drower_nav_box_item">豆を買いたい</a>
+                                <a href="<?php echo home_url('/purpose/beans/'); ?>" class="drower_nav_box_item">豆を買いたい</a>
                             </li>
                         </ul>
                         <ul class="drower_nav_list">
                             <li>
-                                <a href="<?php echo get_permalink(72); ?>" class="drower_nav_item">条件検索</a>
+                                <a href="<?php echo get_permalink(243); ?>" class="drower_nav_item">条件検索</a>
                             </li>
                             <li>
-                                <a href="http://localhost/awacafe-test/column/" class="drower_nav_item">コラム</a>
+                                <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="drower_nav_item">コーヒー入門知識</a>
                             </li>
                             <li>
-                                <a href="<?php echo get_permalink(80); ?>" class="drower_nav_item">コーヒー入門知識</a>
+                                <a href="<?php echo home_url('/column_category/blog/'); ?>" class="drower_nav_item">ブログ</a>
                             </li>
                             <li>
-                                <a href="<?php echo get_permalink(74); ?>" class="drower_nav_item">マイページ</a>
+                                <a href="<?php echo home_url('/column_category/special/'); ?>" class="drower_nav_item">特集</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_item">お問い合わせ</a>
+                                <a href="<?php echo get_permalink(245); ?>" class="drower_nav_item">マイページ</a>
                             </li>
                             <li>
-                                <a href="" class="drower_nav_item"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                                <a href="<?php echo get_permalink(493); ?>" class="drower_nav_item">お問い合わせ</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/awa_our_coffee_hour/" target="_blank" rel="noopener noreferrer" class="drower_nav_item"><i class="fa-brands fa-instagram fa-2x"></i></a>
                             </li>
                         </ul>
                     </nav>

@@ -132,7 +132,12 @@ function awacoffee_scripts()
 
     // page-thanks用のCSS
     if (is_page('thanks')) {
-        wp_enqueue_style('contact', get_template_directory_uri() . '/assets/css/contact.css');
+        wp_enqueue_style('thanks', get_template_directory_uri() . '/assets/css/contact.css');
+    }
+
+    // taxonomy-column_category.php用のCSS
+    if (is_tax('column_category')) {
+        wp_enqueue_style('column_single', get_template_directory_uri() . '/assets/css/column_single.css');
     }
 
     // archive-column用のCSS
@@ -163,24 +168,6 @@ function awacoffee_scripts()
     wp_enqueue_script(
         'awacoffee-front',
         get_template_directory_uri() . "/assets/js/front.js",
-        array('jquery'),
-        "",
-        true
-    );
-
-    // front_0221.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-front_0221',
-        get_template_directory_uri() . "/assets/js/front_0221.js",
-        array('jquery'),
-        "",
-        true
-    );
-
-    // front_0222.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-front_0222',
-        get_template_directory_uri() . "/assets/js/front_0222.js",
         array('jquery'),
         "",
         true

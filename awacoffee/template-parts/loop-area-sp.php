@@ -8,15 +8,10 @@
             <h3 class="stores_name">
                 <?php the_title(); ?>
             </h3>
-            <div class="stores_catch">
-                <?php the_excerpt(); ?>
-            </div>
+            <div class="stores_catch"></div>
             <div class="stores_tags">
                 <p class="stores_tag">
-                    <?php echo get_the_term_list($post->ID, 'area'); ?>
-                </p>
-                <p class="stores_tag">
-                    <?php echo get_the_term_list($post->ID, 'purpose'); ?>
+                    <?php the_field('catchphrase'); ?>
                 </p>
             </div>
         </div>

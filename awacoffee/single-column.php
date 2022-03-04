@@ -32,20 +32,16 @@
                                 <h1 class="column_title">
                                     <?php the_title(); ?>
                                 </h1>
-                                <ul class="tags">
-                                    <li class="tag">
-                                        <a href="">自家焙煎</a>
-                                    </li>
-                                    <li class="tag">
-                                        <a href="">自家焙煎</a>
-                                    </li>
-                                    <li class="tag">
-                                        <a href="">自家焙煎</a>
-                                    </li>
-                                    <li class="tag">
-                                        <a href="">自家焙煎</a>
-                                    </li>
-                                </ul>
+                                <?php
+                                //コラムタグのターム名表示
+                                $tag_slug = 'column_tag';
+                                $tag_terms = wp_get_object_terms($post->ID, $tag_slug);
+                                echo '<ul class="tags">';
+                                foreach ($tag_terms as $tag_term) {
+                                    echo '<li class="tag">' . $tag_term->name . '</li>';
+                                }
+                                echo '</ul>';
+                                ?>
                             </div>
                             <?php the_content(); ?>
 
@@ -60,69 +56,31 @@
                 <div class="inner">
                     <h2 class="recommend_title">あなたへのおすすめ</h2>
                     <div class="card_wrap">
-                        <article class="column_wrap">
-                            <a href="">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="column_wrap">
-                            <a href="">
-                                <div class="column_inner">
-                                    <figure class="column_img_wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                    </figure>
-                                    <div class="column_meta">
-                                        <div class="categories_wrap">
-                                            <time class="column_date" datetime="the_time">2022.03.14</time>
-                                            <ul class="categories">
-                                                <li>コーヒー入門知識</li>
-                                            </ul>
-                                        </div>
-                                        <h3>シングルオリジンとブレンドの違い</h3>
-                                        <div class="column_text">
-                                            <p>自家焙煎にこだわった至福の一杯</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+                        <?php
+                        // メニューの投稿タイプ
+                        $category = array(
+                            'post_type' => 'column',
+                            'posts_per_page' => 3,
+                            'orderby' => 'rand',
+                            'post__not_in' => array($post->ID),
+                        );
+                        // エリアで絞り込む
+                        $categories = array_shift(get_the_terms($post->ID, 'column_category'));
+                        $taxquerysp = array('relation' => 'AND');
+                        $taxquerysp[] = array(
+                            'taxonomy' => 'column_category',
+                            'terms' => $categories->slug,
+                            'field' => 'slug',
+                        );
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'column'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                     <!-- recommend_store_list -->
                 </div>

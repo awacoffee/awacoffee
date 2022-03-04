@@ -74,9 +74,6 @@
     text-align: justify;
     line-height: 1.5;
 }
-.news_page_text_hover a:hover {
-    opacity: .7;
-}
 @media (min-width: 768px) {
     .news_page_text_wrap {
         margin-bottom: 80px;

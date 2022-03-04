@@ -37,46 +37,12 @@
                 <div class="inner">
                     <div class="side_scrool">
                         <!-- コラムカテゴリ -->
-                        <aside>
-                            <h2 class="side_title">
-                                コラムカテゴリ一覧
-                            </h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">入門知識</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">ブログ</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">特集</a>
-                                </li>
-                            </ul>
-                        </aside>
+
+                        <?php get_sidebar('categories') ?>
+
                         <!-- ニュース -->
-                        <aside>
-                            <h2 class="side_title">ニュース</h2>
-                            <ul class="side_lists">
-                                <?php
-                                // カテゴリーnewsのslug情報を取得
-                                $news = get_term_by('slug', 'category_news', 'category');
-                                // カテゴリーnewsのリンクを取得
-                                $news_link = get_term_link($news, 'category');
-                                ?>
-                                <li class="list">
-                                    <a href="<?php echo $news_link; ?>">おしらせ</a>
-                                </li>
-                                <?php
-                                // カテゴリーnewsのslug情報を取得
-                                $news = get_term_by('slug', 'category_update', 'category');
-                                // カテゴリーnewsのリンクを取得
-                                $news_link = get_term_link($news, 'category');
-                                ?>
-                                <li class="list">
-                                    <a href="<?php echo $news_link; ?>">更新情報</a>
-                                </li>
-                            </ul>
-                        </aside>
+
+                        <?php get_sidebar('news') ?>
                     </div>
                 </div>
                 <!-- inner -->

@@ -161,162 +161,66 @@
                 <div id="tab_drink" class="area is_active">
                     <div class="tab_area_flex">
                         <div class="sp_stores_cards">
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                            <?php
+                            $args = array(
+                                'post_type' => 'shop',
+                                'posts_per_page' => 4,
+                                'orderby' => 'rand',
+                            );
+                            $taxquerysp = array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => 'purpose',
+                                    'terms' => 'drink',
+                                    'field' => 'slug',
+                                )
+                            );
+
+                            $args['tax_query'] = $taxquerysp;
+
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()) :
+                            ?>
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                         <!-- sp_stores_cards -->
                         <div class="pc_stores_cards">
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
+                            <?php
+                            $args = array(
+                                'post_type' => 'shop',
+                                'posts_per_page' => 3,
+                                'orderby' => 'rand',
+                            );
+                            $taxquerysp = array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => 'purpose',
+                                    'terms' => 'drink',
+                                    'field' => 'slug',
+                                )
+                            );
 
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
+                            $args['tax_query'] = $taxquerysp;
 
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="https://awa-coffee.com/shop/takashima/">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
-
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()) :
+                            ?>
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'area'); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <!-- tab_area_flex -->
 
                     <!-- お店で飲む一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="https://awa-coffee.com/purpose/drink/"><span>表示テスト:「店で飲む」一覧を見る</span></a>
+                        <a class="btn_link" href="<?php echo home_url('/purpose/drink/'); ?>"><span>表示テスト:「店で飲む」一覧を見る</span></a>
                     </div>
                 </div>
 
@@ -324,163 +228,68 @@
                 <div id="tab_beans" class="area">
                     <div class="tab_area_flex">
                         <div class="sp_stores_cards">
-                            <article class="stores_card">
-                                <a href="#">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="#">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="#">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="#">
-                                    <figure>
-                                        <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                    </figure>
-                                    <div class="text_inner">
-                                        <h3 class="stores_name">①とよとみ珈琲</h3>
-                                        <p class="stores_catch">
-                                            自家焙煎にこだわった至福の一杯
-                                        </p>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">#勉強</p>
-                                            <p class="stores_tag">#デート</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                            <?php
+                            $args = array(
+                                'post_type' => 'shop',
+                                'posts_per_page' => 4,
+                                'orderby' => 'rand',
+                            );
+                            $taxquerysp = array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => 'purpose',
+                                    'terms' => 'beans',
+                                    'field' => 'slug',
+                                )
+                            );
+
+                            $args['tax_query'] = $taxquerysp;
+
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()) :
+                            ?>
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                         <!-- sp_stores_cards -->
                         <div class="pc_stores_cards">
-                            <article class="stores_card">
-                                <a href="#">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
+                            <?php
+                            $args = array(
+                                'post_type' => 'shop',
+                                'posts_per_page' => 3,
+                                'orderby' => 'rand',
+                            );
+                            $taxquerysp = array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => 'purpose',
+                                    'terms' => 'beans',
+                                    'field' => 'slug',
+                                )
+                            );
 
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="#">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
+                            $args['tax_query'] = $taxquerysp;
 
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <article class="stores_card">
-                                <a href="#">
-                                    <div class="front_card">
-                                        <figure class="stores_img">
-                                            <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/img/test_01.jpg" alt="" />
-                                        </figure>
-                                        <div class="stores_tags">
-                                            <p class="stores_tag">シチュエーション別</p>
-                                            <p class="stores_tag">アイウエオ</p>
-                                        </div>
-
-                                        <div class="text_inner">
-                                            <h3 class="stores_name">①とよとみ珈琲</h3>
-                                            <p class="stores_catch">
-                                                自家焙煎にこだわった至福の一杯 自家焙煎に
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="back_card">
-                                        <p class="card_text">
-                                            ここにテキストが入ります ここにテキストが入ります
-                                            ここにテキストが入ります ここにテキストが入ります
-                                        </p>
-                                    </div>
-                                </a>
-                            </article>
-                            <!-- </div> -->
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()) :
+                            ?>
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'area'); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
-                        <!-- pc_stores_cards -->
+                        <!-- </div> -->
                     </div>
+                    <!-- pc_stores_cards -->
+
 
                     <!-- 豆を買う一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="https://awa-coffee.com/purpose/beans/"><span>表示テスト:「豆を買う」一覧を見る</span></a>
+                        <a class="btn_link" href="<?php echo home_url('/purpose/beans/'); ?>"><span>表示テスト:「豆を買う」一覧を見る</span></a>
                     </div>
                 </div>
             </div>
@@ -524,7 +333,7 @@
                 </div>
 
                 <div class="btn_wrap">
-                    <a class="btn_link" href="https://awa-coffee.com/column/"><span>コラム一覧を見る</span></a>
+                    <a class="btn_link" href="<?php echo home_url('/column/'); ?>"><span>コラム一覧を見る</span></a>
                 </div>
             </div>
         </div>
@@ -584,10 +393,10 @@
     <div class="bottom_box">
         <ul class="bottom_box_list">
             <li class="bottom_box_item">
-                <a href="http://localhost/awacafe-test/purpose/drink/">店で飲みたい</a>
+                <a href="<?php echo home_url('/purpose/drink/'); ?>">店で飲みたい</a>
             </li>
             <li class="bottom_box_item">
-                <a href="http://localhost/awacafe-test/purpose/beans/">豆を買いたい</a>
+                <a href="<?php echo home_url('/purpose/beans/'); ?>">豆を買いたい</a>
             </li>
         </ul>
     </div>
