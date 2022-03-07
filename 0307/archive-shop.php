@@ -132,30 +132,15 @@ $found_cnt = $wp_query->post_count;
                     </div>
                     <div class="result_map">
                         <div class="result_text">MAP</div>
-                        <div class="result_map_box">
+                        <div class="result_map_box" style="padding-top:0;">
                             <div class="acf-map" data-zoom="16">
-                                <?php
-                                $args = array(
-                                    'post_type' => 'shop',
-                                    'post_per_page' => -1,
-                                    'post__in' => $favoritepagelist,
-                                );
-                                $taxquerysp = array('relation' => 'AND');
-
-                                $args['tax_query'] = $taxquerysp;
-
-                                $the_query = new WP_Query($args);
-                                if ($the_query->have_posts()) :
-                                ?>
-                                    <?php while ($the_query->have_posts()) : ?>
-                                        <?php $the_query->the_post(); ?>
-
+                                <?php if (have_posts()) : ?>
+                                    <?php while (have_posts()) : the_post(); ?>
                                         <?php
                                         $googlemap = get_field('location'); //get_field()内の値は、2-2.で追加したフィールドの「field_name」
                                         // print_r($googlemap);
                                         ?>
                                         <div class="marker" data-lat="<?php echo esc_attr($googlemap['lat']); ?>" data-lng="<?php echo esc_attr($googlemap['lng']); ?>"></div>
-
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
