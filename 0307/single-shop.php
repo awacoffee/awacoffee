@@ -305,6 +305,7 @@ if (isset($_POST['favoritepageid'])) {
                                 }
                             </style>
                         </div>
+
                     </div>
                     <!-- store_card -->
                 </div>
@@ -366,7 +367,10 @@ if (isset($_POST['favoritepageid'])) {
                                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                             <?php get_template_part('template-parts/loop', 'area'); ?>
                                         <?php endwhile; ?>
-                                    <?php endif; ?>
+                                    <?php
+                                    endif;
+                                    wp_reset_postdata();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -385,30 +389,35 @@ if (isset($_POST['favoritepageid'])) {
             <div class="wrap">
                 <div class="inner">
                     <div class="side_scrool">
-                        <!-- ▼インタビュー記事がある場合に表示▼ -->
-                        <?php
-                        $args = array(
-                            'post_type' => 'column',
-                            'posts_per_page' => 1,
-                            'post__in' => array(get_field('special')),
-                        );
 
-                        $taxquerysp = array('relation' => 'AND');
+                        <?php if (get_field('special')) : ?>
+                            <?php $specialid = array(get_field('special')); ?>
 
-                        $args['tax_query'] = $taxquerysp;
+                            <!-- ▼インタビュー記事がある場合に表示▼ -->
+                            <?php
+                            $args = array(
+                                'post_type' => 'column',
+                                'posts_per_page' => 1,
+                                'post__in' => $specialid,
+                            );
 
-                        $the_query = new WP_Query($args);
-                        if ($the_query->have_posts()) :
-                        ?>
-                            <?php while ($the_query->have_posts()) : ?>
-                                <?php $the_query->the_post(); ?>
+                            $taxquerysp = array('relation' => 'AND');
 
-                                <h2 class="side_title side_column_title">
-                                    このお店のインタビュー
-                                </h2>
-                                <?php get_template_part('template-parts/loop', 'column'); ?>
+                            $args['tax_query'] = $taxquerysp;
 
-                            <?php endwhile; ?>
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()) :
+                            ?>
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+
+                                    <h2 class="side_title side_column_title">
+                                        このお店のインタビュー
+                                    </h2>
+                                    <?php get_template_part('template-parts/loop', 'column'); ?>
+
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                         <!-- エリアで探す -->
