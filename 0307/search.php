@@ -21,11 +21,9 @@
           if (!empty($column_categories)) :
           ?>
             <ul class="column_tab_wrap">
-              <?php foreach ($column_categories as $column_category) : ?>
-                <li class="btn">
-                  <h2 class="column_item_btn"><a href="<?php echo get_term_link($column_category); ?>"><?php echo $column_category->name ?></a></h2>
-                </li>
-              <?php endforeach; ?>
+              <li class="btn">
+                <h2 class="column_item_btn"> 「 <?php echo get_search_query(); ?> 」の検索結果</h2>
+              </li>
               <!-- <li class="btn">
               <h2 class="column_item_btn"><a href="">特集</a></h2>
             </li>
@@ -35,10 +33,7 @@
             </ul>
           <?php endif; ?>
           <div id="search_box" class="column_search">
-            <form method="get" action="<?php echo home_url('/'); ?>" class="search_container">
-              <input type="text" size="25" name="s" value="<?php the_search_query(); ?>" placeholder="キーワード検索">
-              <input type="submit" value="&#xf002">
-            </form>
+
           </div>
         </div>
         <div class="cards_wrap is_column_active">
