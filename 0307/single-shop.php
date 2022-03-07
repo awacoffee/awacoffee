@@ -236,10 +236,10 @@ if (isset($_POST['favoritepageid'])) {
                                 </dd>
                             <?php endif; ?>
 
-                            <dt class="deta_detail">
-                                クレジットカード
-                            </dt>
                             <?php if (get_field('credit_card')) : ?>
+                                <dt class="deta_detail">
+                                    クレジットカード
+                                </dt>
                                 <dd>利用可：
                                     <?php
                                     $credit_cards = get_field('credit_card');
@@ -251,14 +251,10 @@ if (isset($_POST['favoritepageid'])) {
                                     }
                                     ?>
                                 </dd>
-                            <?php else : ?>
-                                <dd>
-                                    <?php echo "利用できるクレジットカードはございません。" ?>
-                                </dd>
                             <?php endif; ?>
 
-                            <dt class="deta_detail">電子マネー</dt>
                             <?php if (get_field('pay')) : ?>
+                                <dt class="deta_detail">電子マネー</dt>
                                 <dd>利用可：
 
                                     <?php
@@ -270,10 +266,6 @@ if (isset($_POST['favoritepageid'])) {
                                         }
                                     }
                                     ?>
-                                </dd>
-                            <?php else : ?>
-                                <dd>
-                                    <?php echo "利用できる電子マネーはございません。" ?>
                                 </dd>
                             <?php endif; ?>
 
@@ -393,24 +385,17 @@ if (isset($_POST['favoritepageid'])) {
             <div class="wrap">
                 <div class="inner">
                     <div class="side_scrool">
+                        <!-- ▼インタビュー記事がある場合に表示▼ -->
                         <?php
-                        // メニューの投稿タイプ
                         $args = array(
                             'post_type' => 'column',
                             'posts_per_page' => 1,
                             'post__in' => array(get_field('special')),
                         );
-                        // 料理の種類で絞り込む
+
                         $taxquerysp = array('relation' => 'AND');
 
-                        // $taxquerysp[] = array(
-                        //     'taxonomy' => 'kind',
-                        //     'terms' => 'drink',
-                        //     'field' => 'slug',
-                        // );
                         $args['tax_query'] = $taxquerysp;
-
-                        // print_r($args);
 
                         $the_query = new WP_Query($args);
                         if ($the_query->have_posts()) :
@@ -418,81 +403,22 @@ if (isset($_POST['favoritepageid'])) {
                             <?php while ($the_query->have_posts()) : ?>
                                 <?php $the_query->the_post(); ?>
 
-                                <div class="col-md-3">
-                                    <?php get_template_part('template-parts/loop', 'column'); ?>
-                                </div>
+                                <h2 class="side_title side_column_title">
+                                    このお店のインタビュー
+                                </h2>
+                                <?php get_template_part('template-parts/loop', 'column'); ?>
 
                             <?php endwhile; ?>
                         <?php endif; ?>
 
                         <!-- エリアで探す -->
-                        <!-- <aside>
-                            <h2 class="side_title">エリアで探す</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">徳島市</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">東部</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">西部</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">南部</a>
-                                </li>
-                            </ul>
-                        </aside> -->
+
                         <?php get_sidebar('areas'); ?>
 
                         <!-- 目的から探す -->
-                        <!-- <aside>
-                            <h2 class="side_title">目的から探す</h2>
-                            <ul class="side_lists">
-                                <li class="list">
-                                    <a href="">お店で飲みたい</a>
-                                </li>
-                                <li class="list">
-                                    <a href="">豆を買いたい</a>
-                                </li>
-                            </ul>
-                        </aside> -->
+
                         <?php get_sidebar('purpose'); ?>
 
-                        <!-- ▼インタビュー記事がある場合に表示▼ -->
-                        <!-- <aside class="side_column"> -->
-                        <!-- <h2 class="side_column_title">このお店のインタビュー</h2> -->
-                        <!-- <h2 class="side_title side_column_title">
-                                このお店のインタビュー
-                            </h2>
-                            <article class="column_wrap">
-                                <a href="">
-                                    <div class="column_inner">
-                                        <figure class="column_img_wrap">
-                                            <img src="./assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" />
-                                        </figure>
-                                        <div class="column_meta">
-                                            <div class="categories_wrap">
-                                                <time class="column_date" datetime="the_time">2022.03.14</time>
-                                                <ul class="categories">
-                                                    <li>
-                                                        コーヒー入門知識
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <h3>
-                                                シングルオリジンとブレンドの違い
-                                            </h3>
-                                            <div class="column_text">
-                                                <p>
-                                                    自家焙煎にこだわった至福の一杯
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </aside> -->
                         <!-- side_column -->
                     </div>
                 </div>
