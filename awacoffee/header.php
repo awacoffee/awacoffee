@@ -21,40 +21,55 @@
 <body>
     <!-- ▼SP下層ヘッダー▼ -->
     <header>
-        <div class="header_wrap under mainvisual_wrap">
+        <div class="header_wrap">
             <div class="header_inner">
-                <div class="header_wrap_box">
-                    <!-- ▼カップicon▼ -->
-                    <a href="<?php echo home_url(); ?>" class="header_wrap_box_icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon.svg" alt="Awa Our Coffee Hourのアイコン" />
-                    </a>
-                    <nav>
-                        <ul class="header_nav_list">
-                            <li>
-                                <a href="<?php echo get_permalink(243); ?>" class="header_nav_item">条件検索</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="header_nav_item">コーヒー入門知識</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/blog/'); ?>" class="header_nav_item">ブログ</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/special/'); ?>" class="header_nav_item">特集</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo get_permalink(245); ?>" class="header_nav_item">マイページ</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- ▼ハンバーガーメニュー▼ -->
-                    <div class="header_wrap_box_nav">
-                        <span class="header_wrap_box_nav_line"></span>
-                        <span class="header_wrap_box_nav_line"></span>
-                        <span class="header_wrap_box_nav_line"></span>
+                <div class="header_inner_bg">
+
+                    <div class="header_wrap_box">
+                        <!-- ▼カップicon▼ -->
+                        <a href="<?php echo home_url(); ?>" class="header_wrap_box_icon">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon.svg" alt="Awa Our Coffee Hourのアイコン" />
+                        </a>
+                        <!-- <nav>
+                            <ul class="header_nav_list">
+                                <li>
+                                    <a href="<?php echo get_permalink(243); ?>" class="header_nav_item">条件検索</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="header_nav_item">コーヒー入門知識</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo home_url('/column_category/blog/'); ?>" class="header_nav_item">ブログ</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo home_url('/column_category/special/'); ?>" class="header_nav_item">特集</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo get_permalink(245); ?>" class="header_nav_item">マイページ</a>
+                                </li>
+                            </ul>
+                        </nav> -->
+                        <?php
+                        $args = array(
+                            'menu' => 'header-global-navigation',
+                            'menu_class' => 'header_nav_list',
+                            'container' => 'nav',
+                            'container_class' => 'header_nav_wrap',
+                        );
+                        wp_nav_menu($args);
+                        ?>
+
+
+                        <!-- ▼ハンバーガーメニュー▼ -->
+                        <div class="header_wrap_box_nav">
+                            <span class="header_wrap_box_nav_line"></span>
+                            <span class="header_wrap_box_nav_line"></span>
+                            <span class="header_wrap_box_nav_line"></span>
+                        </div>
                     </div>
+                    <!-- header_wrap_box -->
                 </div>
-                <!-- header_wrap_box -->
+                <!-- /header_inner_bg -->
             </div>
         </div>
         <!-- /.header_wrap -->
@@ -68,7 +83,7 @@
                         <div class="drower_nav_logo">
                             <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_aoch.png" alt="Awa Our Coffee Hour" /></a>
                         </div>
-                        <ul class="drower_nav_box">
+                        <!-- <ul class="drower_nav_box">
                             <li>
                                 <a href="<?php echo home_url('/purpose/drink/'); ?>" class="drower_nav_box_item">店で飲みたい</a>
                             </li>
@@ -98,8 +113,28 @@
                             <li>
                                 <a href="https://www.instagram.com/awa_our_coffee_hour/" target="_blank" rel="noopener noreferrer" class="drower_nav_item"><i class="fa-brands fa-instagram fa-2x"></i></a>
                             </li>
-                        </ul>
+                        </ul> -->
+
+                        <?php
+                        $args = array(
+                            'menu' => 'header-drower-nav-top',
+                            'menu_class' => 'drower_nav_box',
+                            'container' => false,
+                        );
+                        wp_nav_menu($args);
+                        ?>
+                        <?php
+                        $args = array(
+                            'menu' => 'header-drower-nav-under',
+                            'menu_class' => 'drower_nav_list',
+                            'container' => false,
+                        );
+                        wp_nav_menu($args);
+                        ?>
                     </nav>
+                    <div class="drower_nav_insta">
+                        <a href="https://www.instagram.com/awa_our_coffee_hour" target="_blank" rel="noopener noreferrer" class="drower_nav_item"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,6 +3,11 @@
 /* 条件検索CSS */
 
 /* ======================================================== */
+.header_img_bg {
+    background-image: url(../img/under_search_result_contact.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .search_content {
     max-width: 877px;
@@ -116,7 +121,7 @@ input[type="submit"] {
 
 .area_1 {
     top: 25%;
-    right: 0px;
+    right: -16px;
 }
 /* 文字数が多いため */
 .area_1::before {
@@ -239,13 +244,23 @@ input[type="checkbox"]:checked + .s_search_btn::after {
 }
 
 /* ここから送信検索ボタン */
-
+/* コンタクトcotact.htmlにも使っている */
 .search_btn_wrap {
+    max-width: 877px;
     width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+.search_btn_inner {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
-
+@media (min-width: 768px) {
+    .search_btn_inner {
+        margin-bottom: 0;
+    }
+}
 .search_btn_wrap svg {
     position: absolute;
     width: 20px;
@@ -266,7 +281,7 @@ input[type="checkbox"]:checked + .s_search_btn::after {
     line-height: 60px;
     color: #fff;
     text-align: center;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     z-index: 1;
     transition: 1s;
     /* background-color: #041526; */
@@ -309,4 +324,33 @@ input[type="checkbox"]:checked + .s_search_btn::after {
 }
 .search_btn_inner input:focus + label::before {
     background-color: #fff;
+}
+
+/* ここからリセットボタン */
+
+.reset_btn_wrap {
+    display: flex;
+    justify-content: center;
+}
+#reset_btn {
+    padding: 8px 15px 8px 15px;
+    border: 2px solid #707070;
+    border-radius: 3px;
+    box-shadow: 0px 2px 0px 0px rgba(204, 204, 204, 1);
+    color: #707070;
+}
+#reset_btn:active {
+    background-color: #ccc;
+}
+#reset_btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 768px) {
+    .reset_btn_wrap {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
 }

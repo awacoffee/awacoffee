@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main id="column_list_under">
+  <div class="header_img_bg"></div>
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">
@@ -35,8 +36,8 @@
             </ul>
           <?php endif; ?>
           <div id="search_box" class="column_search">
-            <form method="get" action="#" class="search_container">
-              <input type="text" size="25" placeholder="キーワード検索">
+            <form method="get" action="<?php echo home_url('/'); ?>" class="search_container">
+              <input type="text" name="s" value="<?php the_search_query(); ?>" size="25" placeholder="キーワード検索">
               <input type="submit" value="&#xf002">
             </form>
           </div>

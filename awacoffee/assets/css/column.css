@@ -4,6 +4,13 @@
 
 /* ======================================================== */
 
+.header_img_bg {
+    background-image: url(../img/under_news_column.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* SP版はコラム記事キーワード検索フォームに飛ぶ */
 /* ジャンプ先がヘッダーにかからない高さになるように調整 */
 #search_box {
     padding-top: 60px;
@@ -35,10 +42,13 @@
 }
 /* コラム記事タイトル */
 .s_column_title_wrap h1 {
-    /* font-size: calc(20px + 10 * (100vw - 375px) / 725); */
     font-size: clamp(20px, 2.3vw, 30px);
     margin-bottom: 20px;
     text-align: left;
+}
+.s_column_title_wrap {
+    margin-bottom: 25px;
+    font-size: 16px;
 }
 
 .s_column_title_wrap .tags {
@@ -48,15 +58,14 @@
     display: inline-block;
 }
 .s_column_title_wrap .tags .tag:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 1em;
 }
 
 .s_column_title_wrap .tag::before {
     content: "#";
 }
 .s_column_title_text {
-    margin-bottom: 60px;
-    line-height: 1.375;
+    line-height: 1.8;
 }
 
 /* コラム本文 */
@@ -105,7 +114,7 @@
     padding: 0 1em;
     font-size: 14px;
     text-align: justify;
-    line-height: 1.375;
+    line-height: 1.8;
 }
 @media (min-width: 768px) {
     .s_column_cards {
@@ -115,87 +124,14 @@
         font-size: 16px;
     }
 }
-/* ▼サイドバー▼ */
-.column2_aside {
-    font-family: "Shippori Mincho B1", serif;
-}
-.column2_aside .wrap {
-    height: 100%;
-}
-.column2_aside .inner {
-    height: 100%;
-}
-.side_title {
-    margin-bottom: 50px;
-}
 
-/* h2 */
-.side_title {
-    display: block;
-    margin-bottom: 10px;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-    font-size: 18px;
-    text-align: left;
-}
-@media (min-width: 768px) {
-    .side_title {
-        font-size: 20px;
-    }
-}
-.side_lists {
-    margin-bottom: 40px;
-}
-.side_lists .list a {
-    display: block;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid #542912;
-}
-.side_lists .list {
-    position: relative;
-    font-size: 16px;
-}
-.side_lists .list::after {
-    content: "\f054";
-    position: absolute;
-    top: 35%;
-    right: 1em;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: all 0.5s;
-}
-.side_lists .list:hover:after {
-    transform: translateX(1em);
-}
+/* ======================================================== */
+/* sotore.css　サイドバー */
+/* コラム個別一覧css　サイドバー */
+/* ======================================================== */
 
-/* サイドバー横に出現、順番入れ替え */
-@media (min-width: 768px) {
-    .column2_flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .column2_article {
-        order: 1;
-        flex-basis: 65%;
-    }
-    .column2_aside {
-        order: 2;
-        flex-basis: 35%;
-    }
-    .recommend {
-        order: 3;
-        flex-basis: 100%;
-    }
-    /* アクセスMAPの下部と揃った状態でsticky終わるよう調整 */
-    .column2_aside .inner {
-        padding: 200px 25px 100px;
-    }
-}
 /* サイドバー追従 */
 @media (min-width: 768px) {
-    /* 名前変更 */
     aside {
         display: block;
     }
@@ -205,6 +141,7 @@
         top: 100px;
     }
 }
+
 /* ▼レコメンド▼ */
 section.recommend {
     background-color: #fff;
@@ -221,137 +158,19 @@ section.recommend {
     }
 }
 
-/* ▼コラムカード▼ */
-.column_img_wrap img {
-    width: 150px;
-    height: 112.5px;
-    object-fit: contain;
-}
-@media (min-width: 768px) {
-    .column_img_wrap img {
-        width: 100%;
-        height: 100%;
-    }
+/* ======================================================== */
+/* card.css */
+/* コラムカード追加分 */
+/* 追加分 */
+/* ======================================================== */
+.recommend .column_wrap {
+    max-width: 100%;
 }
 
-@media (min-width: 768px) {
-    .card_wrap {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-
-.column_wrap {
-    margin: 0 auto;
-    border-radius: 3px;
-    transition: 0.3s ease-in-out;
-}
-
-.column_wrap:hover {
-    box-shadow: 0 0 15px #542912;
-}
-@media (min-width: 768px) {
-    .column_wrap {
-        box-shadow: 0px 5px 15px 0px rgb(0 0 0 / 15%);
-    }
-}
-
-.column_wrap + .column_wrap {
-    margin-top: 20px;
-}
-@media (min-width: 768px) {
-    .column_wrap + .column_wrap {
-        margin: 0 0 0 8%;
-    }
-}
-
-.column_inner {
-    display: flex;
-}
-@media (min-width: 768px) {
-    .column_inner {
-        display: block;
-    }
-}
-
-.column_img_wrap {
-    min-width: 100px;
-    overflow: hidden;
-    border-radius: 3px;
-}
-@media (min-width: 768px) {
-    .column_img_wrap {
-        width: 100%;
-    }
-}
-
-.column_meta {
-    flex-grow: 2;
-    margin-left: 10px;
-    border-bottom: 1px solid #7b850b;
-}
-@media (min-width: 768px) {
-    .column_meta {
-        margin-left: 0;
-        padding: 10px 18px 16px;
-        border-bottom: none;
-    }
-}
-
-.column_meta h3 {
-    margin-bottom: 5px;
-}
-@media (min-width: 768px) {
-    .column_meta h3 {
-        font-size: 20px;
-        border-bottom: 1px solid #7b850b;
-        padding-bottom: 15px;
-        margin-bottom: 8px;
-    }
-}
-
-.column_text {
-    display: none;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-@media (min-width: 768px) {
-    .column_text {
-        display: block;
-    }
-}
-
-.categories {
-    display: inline-block;
-
-    padding: 0.2em 0.5em;
-    font-size: 12px;
-    background-color: #f6f4ef;
-}
-@media (min-width: 768px) {
-    .categories {
-        font-size: 14px;
-    }
-}
-
-.column_date {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 14px;
-}
-
-.categories_wrap {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-@media (min-width: 768px) {
-    .categories_wrap {
-        margin: 0 0 10px 0;
-    }
-}
-
+/* ======================================================== */
 /* 検索BOX */
+/* ======================================================== */
+
 .column_search {
     margin-bottom: 40px;
 }
@@ -395,11 +214,7 @@ section.recommend {
 .column_page .s_column_text {
     display: block;
     list-style: disc inside none;
-    margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 20px;
 }
 /* ③枠線 class名を指定 */
 .column_page .box {
@@ -408,16 +223,17 @@ section.recommend {
     border: 1px solid#542912;
 }
 /* ④h3のスタイルを設定 */
-.column_page .s_column_card h3 {
+.column_page .s_column_thirdtitle {
     position: relative;
     margin-left: 10px;
-    padding: 0.3em 0.3em 0.3em 0.5em;
-    font-family: "Shippori Mincho B1";
-    font-size: 16px;
-    border-left: #7b850b 7px solid;
     margin-bottom: 10px;
+    padding: 0.3em 0.3em 0.3em 0.5em;
+    border-left: #7b850b 7px solid;
+    font-family: "Shippori Mincho B1";
+    font-size: 18px;
+    font-weight: bold;
 }
-.column_page .s_column_card h3::after {
+.column_page .s_column_thirdtitle::after {
     position: absolute;
     content: "";
     left: -13px;
@@ -428,9 +244,21 @@ section.recommend {
 /* ⑤写真のキャプションのスタイル */
 figcaption {
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 12px;
+    color: #707070;
 }
+@media (min-width: 768px) {
+    figcaption {
+        font-size: 14px;
+    }
+}
+
 /* ⑥リンクに下線 */
-.s_column_card a:link {
+.column2_article a {
+    color: #4682b4;
+}
+
+.column2_article a:link {
     text-decoration: underline;
+    color: #4682b4;
 }

@@ -58,23 +58,14 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon.svg" alt="Awa Our Coffee Hourのアイコン" />
                     </a>
                     <nav>
-                        <ul class="header_nav_list">
-                            <li>
-                                <a href="<?php echo get_permalink(243); ?>" class="header_nav_item">条件検索</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="header_nav_item">コーヒー入門知識</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/blog/'); ?>" class="header_nav_item">ブログ</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo home_url('/column_category/special/'); ?>" class="header_nav_item">特集</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo get_permalink(245); ?>" class="header_nav_item">マイページ</a>
-                            </li>
-                        </ul>
+                        <?php
+                        $args = array(
+                            'menu' => 'header-global-navigation',
+                            'menu_class' => 'header_nav_list',
+                            'container' => false,
+                        );
+                        wp_nav_menu($args);
+                        ?>
                     </nav>
                     <!-- ▼ハンバーガーメニュー▼ -->
                     <div class="header_wrap_box_nav">

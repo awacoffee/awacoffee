@@ -28,6 +28,7 @@ $found_cnt = $wp_query->post_count;
 
 <body>
     <main>
+        <?php echo do_shortcode('[flexy_breadcrumb]'); ?>
         <!-- ▼タイトルエリア▼ -->
         <div class="wrap mainvisual_wrap">
             <div class="under_title inner">
@@ -131,12 +132,36 @@ $found_cnt = $wp_query->post_count;
                     </div>
                     <div class="result_map">
                         <div class="result_text">MAP</div>
-                        <div class="result_map_box">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.1690029533397!2d134.57330771521546!3d34.06518168060244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35536d1131fd515b%3A0xb7bb664ec05a9180!2z44Go44KI44Go44G_54-I55Cy!5e0!3m2!1sja!2sjp!4v1645013839914!5m2!1sja!2sjp" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" title="店舗周辺の地図"></iframe>
+                        <div class="result_map_box" style="padding-top:0;">
+                            <div class="acf-map" data-zoom="16">
+                                <?php if (have_posts()) : ?>
+                                    <?php while (have_posts()) : the_post(); ?>
+                                        <?php
+                                        $googlemap = get_field('location'); //get_field()内の値は、2-2.で追加したフィールドの「field_name」
+                                        // print_r($googlemap);
+                                        ?>
+                                        <div class="marker" data-lat="<?php echo esc_attr($googlemap['lat']); ?>" data-lng="<?php echo esc_attr($googlemap['lng']); ?>"></div>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </div>
+                            <style>
+                                .acf-map {
+                                    width: 100%;
+                                    height: 450px;
+                                    /* position: initial !important; */
+                                    border: #ccc solid 1px;
+                                    margin: 20px 0;
+                                }
+
+                                .acf-map img {
+                                    display: block;
+                                    height: 100%;
+                                }
+                            </style>
                         </div>
                     </div>
                     <div class="btn_wrap">
-                        <a class="btn_link" href="<?php echo get_permalink(243); ?>"><span><i class="fa-solid fa-magnifying-glass"></i>再検索する</span></a>
+                        <a class="btn_link" href="#!"><span><i class="fa-solid fa-magnifying-glass"></i>再検索する</span></a>
                     </div>
                 </div>
             </div>

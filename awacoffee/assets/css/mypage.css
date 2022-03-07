@@ -3,7 +3,11 @@
 /* マイページCSS */
 
 /* ======================================================== */
-
+.header_img_bg {
+    background-image: url(../img/under_store.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .my_page h2 {
     margin-bottom: 20px;
 }

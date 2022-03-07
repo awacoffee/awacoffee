@@ -2,7 +2,7 @@
 
 
 <main class="column_page" id="column_under">
-
+    <div class="header_img_bg"></div>
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
         <div class="under_title inner">
@@ -17,7 +17,7 @@
     </div>
 
     <!-- 全体で囲む or flex -->
-    <section class="column2_flex wrap">
+    <div class="column2_flex wrap">
         <!-- コラム記事本文-->
         <section class="column2_article">
             <div class="wrap">
@@ -99,8 +99,8 @@
                     <div class="side_scrool">
                         <!-- 検索BOX -->
                         <aside id="search_box" class="column_search">
-                            <form method="get" action="#" class="search_container">
-                                <input type="text" size="25" placeholder="キーワード検索">
+                            <form method="get" action="<?php echo home_url('/'); ?>" class="search_container">
+                                <input type="text" name="s" value="<?php the_search_query(); ?>" size="25" placeholder="キーワード検索">
                                 <input type="submit" value="&#xf002">
                             </form>
                         </aside>
@@ -118,7 +118,8 @@
             </div>
             <!-- wrap -->
         </div>
-    </section>
+    </div>
 </main>
+
 
 <?php get_footer(); ?>

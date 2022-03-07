@@ -2,7 +2,11 @@
     <a href="<?php the_permalink(); ?>">
         <div class="column_inner">
             <figure class="column_img_wrap">
-                <?php the_post_thumbnail('medium'); ?>
+                <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail(); ?>
+                <?php else : ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/noimage2.jpg" alt="">
+                <?php endif; ?>
                 <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4-3img.jpg" alt="コラム記事のサムネイル画像" /> -->
             </figure>
             <div class="column_meta">
@@ -12,12 +16,10 @@
                         <?php echo get_the_term_list($post->ID, 'column_category'); ?>
                     </ul>
                 </div>
-                <a href="<?php the_permalink(); ?>">
-                    <h3><?php the_title(); ?></h3>
-                    <div class="column_text">
-                        <p><?php the_excerpt(); ?></p>
-                    </div>
-                </a>
+                <h3><?php the_title(); ?></h3>
+                <div class="column_text">
+                    <p><?php the_excerpt(); ?></p>
+                </div>
             </div>
         </div>
     </a>

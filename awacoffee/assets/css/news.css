@@ -4,8 +4,13 @@
 
 /* ======================================================== */
 /* 新着情報 */
-.column2_article {
-    flex-basis: 70%;
+/* .column2_article {
+  flex-basis: 70%;
+} */
+.header_img_bg {
+    background-image: url(../img/under_news_column.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .column2_article .wrap_text {
     text-align: left;
@@ -46,6 +51,7 @@
     margin-left: 10px;
     padding: 0.3em 0.5em;
     background-color: #542912;
+    border: 1px solid #542912;
     color: #fff;
 }
 .category_news {
@@ -53,12 +59,20 @@
     margin-left: 10px;
     padding: 0.3em 0.5em;
     background-color: #fff;
-    border: 1px solid #542912;
+    border: 1px solid currentColor;
     color: #542912;
 }
 .news_text {
     display: block;
     margin-bottom: 6px;
+    padding: 5px;
+    transition: all 0.5s;
+}
+
+@media (min-width: 768px) {
+    .news_text:hover {
+        background-color: #f6f4ef;
+    }
 }
 .news_title {
     margin-bottom: 6px;
@@ -73,86 +87,8 @@
     }
 }
 
-/* ▼サイドバー▼ */
-.column2_aside {
-    font-family: "Shippori Mincho B1", serif;
-}
-.column2_aside .wrap {
-    height: 100%;
-}
-.column2_aside .inner {
-    height: 100%;
-}
-.side_title {
-    margin-bottom: 50px;
-}
-
-/* h2 */
-.side_title {
-    display: block;
-    margin-bottom: 10px;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-    font-size: 18px;
-    text-align: left;
-}
-@media (min-width: 768px) {
-    .side_title {
-        font-size: 20px;
-    }
-}
-.side_lists {
-    margin-bottom: 40px;
-}
-.side_lists .list a {
-    display: block;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid #542912;
-}
-.side_lists .list {
-    position: relative;
-    font-size: 16px;
-}
-.side_lists .list::after {
-    content: "\f054";
-    position: absolute;
-    top: 35%;
-    right: 1em;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: all 0.5s;
-}
-.side_lists .list:hover:after {
-    transform: translateX(1em);
-}
-/* サイドバー横に出現、順番入れ替え */
-@media (min-width: 768px) {
-    .column2_flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .column2_article {
-        order: 1;
-        flex-basis: 65%;
-    }
-    .column2_aside {
-        order: 2;
-        flex-basis: 35%;
-    }
-    .recommend {
-        order: 3;
-        flex-basis: 100%;
-    }
-    /* アクセスMAPの下部と揃った状態でsticky終わるよう調整 */
-    .column2_aside .inner {
-        padding: 200px 25px 100px;
-    }
-}
 /* サイドバー追従 */
 @media (min-width: 768px) {
-    /* 名前変更 */
     aside {
         display: block;
     }

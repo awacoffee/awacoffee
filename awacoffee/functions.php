@@ -54,12 +54,6 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/common.css",
     );
 
-    // card.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-cardcss",
-        get_template_directory_uri() . "/assets/css/card.css",
-    );
-
     // loding.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-lodingcss",
@@ -72,22 +66,10 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/news.css",
     );
 
-    // privacy.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-privacycss",
-        get_template_directory_uri() . "/assets/css/privacy.css",
-    );
-
     // result.cssのスタイルシートを読み込む
     wp_enqueue_style(
         "awacoffee-resultcss",
         get_template_directory_uri() . "/assets/css/result.css",
-    );
-
-    // store_list.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-storelistcss",
-        get_template_directory_uri() . "/assets/css/store_list.css",
     );
 
     // front-page用のCSS
@@ -135,9 +117,19 @@ function awacoffee_scripts()
         wp_enqueue_style('thanks', get_template_directory_uri() . '/assets/css/contact.css');
     }
 
+    // page-privacy用のCSS
+    if (is_page('privacy')) {
+        wp_enqueue_style('privacy', get_template_directory_uri() . '/assets/css/privacy.css');
+    }
+
     // taxonomy-column_category.php用のCSS
     if (is_tax('column_category')) {
         wp_enqueue_style('column_single', get_template_directory_uri() . '/assets/css/column_single.css');
+    }
+
+    // taxonomy-purpose.php用のCSS
+    if (is_tax('purpose')) {
+        wp_enqueue_style('purpose', get_template_directory_uri() . '/assets/css/store_list.css');
     }
 
     // archive-column用のCSS
@@ -164,59 +156,76 @@ function awacoffee_scripts()
         true
     );
 
-    // front.jsのJSファイルを読み込んで、フッターに出力
+    // ★石川追記：main.jsのJSファイルを読み込んで、フッターに出力
     wp_enqueue_script(
         'awacoffee-front',
-        get_template_directory_uri() . "/assets/js/front.js",
+        get_template_directory_uri() . "/assets/js/main.js",
         array('jquery'),
         "",
         true
     );
+    // // front.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-front',
+    //     get_template_directory_uri() . "/assets/js/front.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
-    // loding.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-lodingjs',
-        get_template_directory_uri() . "/assets/js/loding.js",
-        array('jquery'),
-        "",
-        true
-    );
+    // // loding.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-lodingjs',
+    //     get_template_directory_uri() . "/assets/js/loding.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
-    // news_list.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-news_listjs',
-        get_template_directory_uri() . "/assets/js/news_list.js",
-        array('jquery'),
-        "",
-        true
-    );
+    // // news_list.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-news_listjs',
+    //     get_template_directory_uri() . "/assets/js/news_list.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
-    // search.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-searchjs',
-        get_template_directory_uri() . "/assets/js/search.js",
-        array('jquery'),
-        "",
-        true
-    );
+    // // search.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-searchjs',
+    //     get_template_directory_uri() . "/assets/js/search.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
-    // store_list.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-store_listjs',
-        get_template_directory_uri() . "/assets/js/store_list.js",
-        array('jquery'),
-        "",
-        true
-    );
+    // // store_list.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-store_listjs',
+    //     get_template_directory_uri() . "/assets/js/store_list.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
-    // store.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
-        'awacoffee-storejs',
-        get_template_directory_uri() . "/assets/js/store.js",
-        array('jquery'),
-        "",
-        true
-    );
+    // // store.jsのJSファイルを読み込んで、フッターに出力
+    // wp_enqueue_script(
+    //     'awacoffee-storejs',
+    //     get_template_directory_uri() . "/assets/js/store.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
+
+    // // ★石川記載：header.jsのJSファイルを読み込んで、フッターに出力 ヘッダー動作確認のため★
+    // wp_enqueue_script(
+    //     'awacoffee-headerjs',
+    //     get_template_directory_uri() . "/assets/js/header.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
 
     // googlemapのapiキーを取得する
     wp_enqueue_script(
@@ -314,3 +323,14 @@ function my_query_string($q)
     return $q;
 }
 add_filter('request', 'my_query_string', 1);
+
+/*search.phpの結果にコラム記事のみ表示させる西野作*/
+function custom_search($search, $wp_query)
+{
+    //サーチページ以外だったら終了
+    if (!$wp_query->is_search) return;
+    //特定の投稿タイプのみ表示
+    $search .= " AND post_type = 'column'";
+    return $search;
+}
+add_filter('posts_search', 'custom_search', 10, 2);

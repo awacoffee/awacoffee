@@ -1,4 +1,4 @@
-<?php get_header("front"); ?>
+<?php get_header(); ?>
 <div id="loading" class="loading active">
     <div class="mainvisual_box">
         <div class="mainvisual_wrap_logo">
@@ -55,9 +55,9 @@
     <!-- <div class="loadingText">AwaOurcoffeeHour</div> -->
     <div class="bg"></div>
 </div>
-<main>
+<main id="index_under">
     <div class="mainvisual_wrap">
-        <video id="main_movie" src="<?php echo get_template_directory_uri(); ?>/assets/video/video_mainvisual_0223.mp4" muted playsinline loop></video>
+        <video id="main_movie" src="<?php echo get_template_directory_uri(); ?>/assets/video/mainvisual_movie.mp4" muted playsinline loop></video>
         <div class="mainvisual_box">
             <div class="mainvisual_wrap_logo">
                 <!-- <img src="./assets/img/logo_aoch.png" alt="" /> -->
@@ -120,14 +120,25 @@
                     <h2>このサイトについて</h2>
                 </div>
                 <div class="wrap_text">
-                    <p>
-                        コーヒー好きが多い県、徳島。<br />
-                        県内にはこだわりのカフェや喫茶店が多く存在しているんです。<br />
-                        Awa Our Coffee
-                        Hourは、徳島県内にあるこだわりコーヒー店の情報から<br />
-                        自宅でコーヒーを楽しむために役立つ豆知識まで、
+                    <p class="wrap_text_box">
+                        <span class="wrap_text_head">
+                            コーヒー好きが多い県、徳島。<br />
+                        </span>
+                        県内にはこだわりのカフェや<br class="br_none" />喫茶店が多く存在しているんです。
+                    </p>
+                    <p class="wrap_text_box">
+                        <span class="wrap_text_head">
+                            Awa Our Coffee Hourは、<br />
+                        </span>
+                        徳島県内にあるこだわりコーヒー店の情報から<br class="br_none" />
+                        自宅でコーヒーを楽しむために役立つ豆知識まで、<br />
                         コーヒー好きのための情報をお届けします。<br />
-                        ぜひ、あなたのお出かけタイムやおうち時間の「美味しいひととき」を見つけてください。
+                    </p>
+                    <p class="wrap_text_box">
+                        ぜひ、<br class="br_none" />
+                        あなたのお出かけタイムやおうち時間の<br />
+                        <span class="wrap_text_head">
+                            「美味しいひととき」</span>を見つけてください。
                     </p>
                 </div>
             </div>
@@ -150,7 +161,7 @@
                 <!-- ▼タブメニュー▼ -->
                 <ul class="tab_wrap">
                     <li class="active">
-                        <a href="#tab_drink" class="tab_item">店で飲みたい</a>
+                        <a href="#tab_drink" class="tab_item">お店で飲みたい</a>
                     </li>
                     <li>
                         <a href="#tab_beans" class="tab_item">豆を買いたい</a>
@@ -220,7 +231,7 @@
 
                     <!-- お店で飲む一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="<?php echo home_url('/purpose/drink/'); ?>"><span>表示テスト:「店で飲む」一覧を見る</span></a>
+                        <a class="btn_link" href="<?php echo home_url('/purpose/drink/'); ?>"><span>店舗一覧を見る</span></a>
                     </div>
                 </div>
 
@@ -289,7 +300,7 @@
 
                     <!-- 豆を買う一覧に飛ばす -->
                     <div class="btn_wrap">
-                        <a class="btn_link" href="<?php echo home_url('/purpose/beans/'); ?>"><span>表示テスト:「豆を買う」一覧を見る</span></a>
+                        <a class="btn_link" href="<?php echo home_url('/purpose/beans/'); ?>"><span>店舗一覧を見る</span></a>
                     </div>
                 </div>
             </div>
@@ -384,7 +395,8 @@
                         サイト制作の裏側も随時発信中です。
                     </p>
                 </div>
-                ※インスタの埋め込みが入る。カルーセルスライダー（自動？）
+                <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+                <!-- ※インスタの埋め込みが入る。カルーセルスライダー（自動？） -->
             </div>
         </div>
     </section>
@@ -393,7 +405,7 @@
     <div class="bottom_box">
         <ul class="bottom_box_list">
             <li class="bottom_box_item">
-                <a href="<?php echo home_url('/purpose/drink/'); ?>">店で飲みたい</a>
+                <a href="<?php echo home_url('/purpose/drink/'); ?>">お店で飲みたい</a>
             </li>
             <li class="bottom_box_item">
                 <a href="<?php echo home_url('/purpose/beans/'); ?>">豆を買いたい</a>

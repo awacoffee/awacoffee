@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main id="column_list_under">
+  <div class="header_img_bg"></div>
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">
@@ -147,7 +148,9 @@
               <li>3</li>
               <li>次へ</li>
             </ul> -->
-            <?php if (function_exists('wp_pagenavi')) {wp_pagenavi();} ?>
+            <?php if (function_exists('wp_pagenavi')) {
+              wp_pagenavi();
+            } ?>
           </div>
 
         </div>
@@ -161,8 +164,8 @@
           <aside class="side_scrool">
             <!-- 検索BOX -->
             <aside id="search_box" class="column_search">
-              <form method="get" action="#" class="search_container">
-                <input type="text" size="25" placeholder="キーワード検索">
+              <form method="get" action="<?php echo home_url('/'); ?>" class="search_container">
+                <input type="text" name="s" value="<?php the_search_query(); ?>" size="25" placeholder="キーワード検索">
                 <input type="submit" value="&#xf002">
               </form>
             </aside>
@@ -204,5 +207,6 @@
     </div>
   </div>
 </main>
+
 
 <?php get_footer(); ?>

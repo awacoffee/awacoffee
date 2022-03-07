@@ -7,10 +7,14 @@
 /* サイドバー */
 /* コラムカード（インタビュー特集がある場合に）このページ用にレイアウト編集した */
 /* ======================================================== */
-
+.header_img_bg {
+    background-image: url(../img/under_store.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 /* 店舗名　※h2 */
 .store_card {
-    line-height: 1.5;
+    line-height: 1.8;
 }
 .store_card h3 {
     margin-bottom: 10px;
@@ -45,6 +49,7 @@
     justify-content: space-between;
     margin-bottom: 16px;
 }
+
 /* ジャンプ先がヘッダーにかからない高さになるように調整 */
 #store_info {
     padding-top: 60px;
@@ -54,23 +59,19 @@
     display: inline-block;
     padding: 8px 14px;
     background-color: #041526;
-    border: 1px solid #041526;
     border-radius: 2px;
     color: #fff;
     transition: all 0.3s;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.35);
 }
 .fa-circle-chevron-down {
     margin-right: 5px;
 }
-/* PCの時はhoverで反転 */
-@media (min-width: 768px) {
-    .store_info_btn:hover {
-        background-color: #fff;
-        border: 1px solid currentColor;
-        color: #041526;
-    }
+/* hoverで反転 */
+.store_info_btn:hover {
+    background-color: #fff;
+    color: #041526;
 }
-
 .store_fun {
     display: flex;
     align-items: flex-end;
@@ -101,6 +102,16 @@
     background-image: url(../img/Icon\ ionic-ios-bookmark_checked.png);
     background-size: contain;
     background-repeat: no-repeat;
+}
+.wpulike.wpulike-heart {
+    padding: 0;
+}
+.store_fun .form__favorite__btn {
+    align-self: flex-end;
+}
+.wpulike-heart .wp_ulike_put_image.wp_ulike_btn_is_active:after {
+    filter: invert(43%) sepia(40%) saturate(3799%) hue-rotate(14deg)
+        brightness(100%) contrast(111%);
 }
 /* 画像切り替え */
 .store_img_area {
@@ -167,11 +178,11 @@
     height: 100px;
 }
 .store_illust_01 {
-    background-image: url(../img/Newマスター01.svg);
+    background-image: url(../img/store_staff_01.svg);
     margin-left: 40px;
 }
 .store_illust_02 {
-    background-image: url(../img/Newメニュー.svg);
+    background-image: url(../img/store_menu_01.svg);
     margin-left: 30px;
 }
 .store_commit_text {
@@ -221,11 +232,13 @@
     height: 100%;
     object-fit: cover;
 }
-dd a:hover {
-    color: #e0591e;
+/* ⑥リンクに色と下線 */
+dd a {
+    color: #4682b4;
 }
 dd a:link {
     text-decoration: underline;
+    color: #4682b4;
 }
 
 .recommend_title {
@@ -234,87 +247,8 @@ dd a:link {
     margin-bottom: 40px;
 }
 
-/* ▼サイドバー▼ */
-.column2_aside {
-    font-family: "Shippori Mincho B1", serif;
-}
-.column2_aside .wrap {
-    height: 100%;
-}
-.column2_aside .inner {
-    height: 100%;
-}
-.side_title {
-    margin-bottom: 50px;
-}
-
-/* h2 */
-.side_title {
-    display: block;
-    margin-bottom: 10px;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-    font-size: 18px;
-    text-align: left;
-}
-@media (min-width: 768px) {
-    .side_title {
-        font-size: 20px;
-    }
-}
-.side_lists {
-    margin-bottom: 40px;
-}
-.side_lists .list a {
-    display: block;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid #542912;
-}
-.side_lists .list {
-    position: relative;
-    font-size: 16px;
-}
-.side_lists .list::after {
-    content: "\f054";
-    position: absolute;
-    top: 35%;
-    right: 1em;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    transition: all 0.5s;
-}
-.side_lists .list:hover:after {
-    transform: translateX(1em);
-}
-
-/* サイドバー横に出現、順番入れ替え */
-@media (min-width: 768px) {
-    .column2_flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .column2_article {
-        order: 1;
-        flex-basis: 65%;
-    }
-    .column2_aside {
-        order: 2;
-        flex-basis: 35%;
-    }
-    .recommend {
-        order: 3;
-        flex-basis: 100%;
-    }
-    /* アクセスMAPの下部と揃った状態でsticky終わるよう調整 */
-    .column2_aside .inner {
-        padding: 200px 25px 100px;
-    }
-}
 /* サイドバー追従 */
-@media (min-width: 768px) {
-    /* 名前変更 */
+/* @media (min-width: 768px) {
     aside {
         display: block;
     }
@@ -323,7 +257,7 @@ dd a:link {
         position: -webkit-sticky;
         top: 100px;
     }
-}
+} */
 
 /* ▼インタビュー記事ある場合▼ */
 /* ▼コラムカード▼ */
@@ -499,7 +433,6 @@ dd a:link {
     width: 100%;
     padding: 16px;
     background-color: #041526;
-    border: 1px solid #041526;
     border-radius: 3px;
     text-align: center;
     font-family: "Shippori Mincho B1", serif;
@@ -508,12 +441,9 @@ dd a:link {
     color: #fff;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.35);
 }
-@media (min-width: 768px) {
-    .store_page_btn_link:hover {
-        background-color: #fff;
-        border: 1px solid currentColor;
-        color: #041526;
-    }
+.store_page_btn_link:hover {
+    background-color: #fff;
+    color: #041526;
 }
 .fa-magnifying-glass {
     margin-right: 5px;
