@@ -33,7 +33,6 @@
             </ul>
           <?php endif; ?>
           <div id="search_box" class="column_search">
-
           </div>
         </div>
         <div class="cards_wrap is_column_active">
@@ -42,6 +41,10 @@
               <?php while (have_posts()) : the_post(); ?>
                 <?php get_template_part('template-parts/loop', 'column'); ?>
               <?php endwhile; ?>
+            <?php else : ?>
+              <div class="s_column_text">
+                <p>検索結果はありませんでした</p>
+              </div>
             <?php endif; ?>
             <!-- <article class="column_wrap">
               <a href="">
