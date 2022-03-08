@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <main>
-    <?php echo do_shortcode('[flexy_breadcrumb]'); ?>
     <?php
     // 開いているページの情報を取得
     $area_slug = get_query_var('area');
@@ -17,6 +16,7 @@
                 <h1><?php echo $area->name; ?></h1>
             </div>
         </div>
+        <?php echo do_shortcode('[flexy_breadcrumb]'); ?>
     </div>
     <!-- /.wrap -->
     <?php
