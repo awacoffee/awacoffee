@@ -7,7 +7,7 @@ if(is_page('contact')){
 <?php get_header(); ?>
 
 <main>
-<div class="header_img_bg"></div>
+<div class="header_img_bg mainvisual_wrap"></div>
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">

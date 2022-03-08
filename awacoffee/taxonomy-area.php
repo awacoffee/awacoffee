@@ -25,320 +25,280 @@
     if (strstr($url, 'tokushima')) :
     ?>
         <!--徳島市-->
-        <?php foreach ($purposes as $purpose) : ?>
-            <div class="wrap">
-                <div class="inner">
-                    <div class="store_area">
-                        <h2 class="area_cate"><?php echo $purpose->name; ?></h2>
-                        <!--PC版での記事一覧の表示-->
-                        <div class="pc_stores_cards store_lists">
-                            <?php
-                            $url = $_SERVER['REQUEST_URI'];
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'tokushima',
-                                    'field' => 'slug',
-                                )
-                            );
-                            $args['tax_query'] = $taxquerysp;
+        <div class="wrap">
+            <div class="inner">
+                <div class="store_area">
+                    <!--PC版での記事一覧の表示-->
+                    <div class="pc_stores_cards store_lists">
+                        <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'tokushima',
+                                'field' => 'slug',
+                            )
+                        );
+                        $args['tax_query'] = $taxquerysp;
 
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="pc_more_btn"><button>more</button></div>
-                        <!--SP版の記事表示-->
-                        <div class="sp_stores_cards store_lists">
-                            <?php
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'tokushima',
-                                    'field' => 'slug',
-                                ),
-                            );
-                            $args['tax_query'] = $taxquerysp;
-
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="sp_more_btn"><button>more</button></div>
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
-                    <!-- store_area -->
+                    <!--SP版の記事表示-->
+                    <div class="sp_stores_cards store_lists">
+                        <?php
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'purpose',
+                                'terms' => $purpose->slug,
+                                'field' => 'slug',
+                            ),
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'tokushima',
+                                'field' => 'slug',
+                            ),
+                        );
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <!-- store_area -->
             </div>
-        <?php endforeach; ?>
+        </div>
     <?php elseif (strstr($url, 'east')) : ?>
         <!--東部-->
-        <?php foreach ($purposes as $purpose) : ?>
-            <div class="wrap">
-                <div class="inner">
-                    <div class="store_area">
-                        <h2 class="area_cate"><?php echo $purpose->name; ?></h2>
-                        <!--PC版での記事一覧の表示-->
-                        <div class="pc_stores_cards store_lists">
-                            <?php
-                            $url = $_SERVER['REQUEST_URI'];
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'east',
-                                    'field' => 'slug',
-                                )
-                            );
-                            $args['tax_query'] = $taxquerysp;
+        <div class="wrap">
+            <div class="inner">
+                <div class="store_area">
+                    <!--PC版での記事一覧の表示-->
+                    <div class="pc_stores_cards store_lists">
+                        <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'east',
+                                'field' => 'slug',
+                            )
+                        );
+                        $args['tax_query'] = $taxquerysp;
 
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="pc_more_btn"><button>more</button></div>
-                        <!--SP版の記事表示-->
-                        <div class="sp_stores_cards store_lists">
-                            <?php
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'east',
-                                    'field' => 'slug',
-                                ),
-                            );
-                            $args['tax_query'] = $taxquerysp;
-
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="sp_more_btn"><button>more</button></div>
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
-                    <!-- store_area -->
+                    <!--SP版の記事表示-->
+                    <div class="sp_stores_cards store_lists">
+                        <?php
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'purpose',
+                                'terms' => $purpose->slug,
+                                'field' => 'slug',
+                            ),
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'east',
+                                'field' => 'slug',
+                            ),
+                        );
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <!-- store_area -->
             </div>
-        <?php endforeach; ?>
+        </div>
     <?php elseif (strstr($url, 'west')) : ?>
         <!--西部-->
-        <?php foreach ($purposes as $purpose) : ?>
-            <div class="wrap">
-                <div class="inner">
-                    <div class="store_area">
-                        <h2 class="area_cate"><?php echo $purpose->name; ?></h2>
-                        <!--PC版での記事一覧の表示-->
-                        <div class="pc_stores_cards store_lists">
-                            <?php
-                            $url = $_SERVER['REQUEST_URI'];
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'west',
-                                    'field' => 'slug',
-                                )
-                            );
-                            $args['tax_query'] = $taxquerysp;
+        <div class="wrap">
+            <div class="inner">
+                <div class="store_area">
+                    <!--PC版での記事一覧の表示-->
+                    <div class="pc_stores_cards store_lists">
+                        <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'west',
+                                'field' => 'slug',
+                            )
+                        );
+                        $args['tax_query'] = $taxquerysp;
 
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="pc_more_btn"><button>more</button></div>
-                        <!--SP版の記事表示-->
-                        <div class="sp_stores_cards store_lists">
-                            <?php
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'west',
-                                    'field' => 'slug',
-                                ),
-                            );
-                            $args['tax_query'] = $taxquerysp;
-
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="sp_more_btn"><button>more</button></div>
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
-                    <!-- store_area -->
+                    <!--SP版の記事表示-->
+                    <div class="sp_stores_cards store_lists">
+                        <?php
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'purpose',
+                                'terms' => $purpose->slug,
+                                'field' => 'slug',
+                            ),
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'west',
+                                'field' => 'slug',
+                            ),
+                        );
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <!-- store_area -->
             </div>
-        <?php endforeach; ?>
+        </div>
     <?php elseif (strstr($url, 'south')) : ?>
         <!--南部-->
-        <?php foreach ($purposes as $purpose) : ?>
-            <div class="wrap">
-                <div class="inner">
-                    <div class="store_area">
-                        <h2 class="area_cate"><?php echo $purpose->name; ?></h2>
-                        <!--PC版での記事一覧の表示-->
-                        <div class="pc_stores_cards store_lists">
-                            <?php
-                            $url = $_SERVER['REQUEST_URI'];
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'south',
-                                    'field' => 'slug',
-                                )
-                            );
-                            $args['tax_query'] = $taxquerysp;
+        <div class="wrap">
+            <div class="inner">
+                <div class="store_area">
+                    <!--PC版での記事一覧の表示-->
+                    <div class="pc_stores_cards store_lists">
+                        <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'south',
+                                'field' => 'slug',
+                            )
+                        );
+                        $args['tax_query'] = $taxquerysp;
 
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="pc_more_btn"><button>more</button></div>
-                        <!--SP版の記事表示-->
-                        <div class="sp_stores_cards store_lists">
-                            <?php
-                            // メニューの投稿タイプ
-                            $args = array(
-                                'post_type' => 'shop',
-                                'posts_per_page' => -1,
-                            );
-                            // エリアで絞り込む
-                            $taxquerysp = array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'purpose',
-                                    'terms' => $purpose->slug,
-                                    'field' => 'slug',
-                                ),
-                                array(
-                                    'taxonomy' => 'area',
-                                    'terms' => 'south',
-                                    'field' => 'slug',
-                                ),
-                            );
-                            $args['tax_query'] = $taxquerysp;
-
-                            $the_query =  new WP_Query($args);
-                            if ($the_query->have_posts()) :
-                            ?>
-                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'area-sp'); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="sp_more_btn"><button>more</button></div>
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
-                    <!-- store_area -->
+                    <!--SP版の記事表示-->
+                    <div class="sp_stores_cards store_lists">
+                        <?php
+                        // メニューの投稿タイプ
+                        $args = array(
+                            'post_type' => 'shop',
+                            'posts_per_page' => -1,
+                        );
+                        // エリアで絞り込む
+                        $taxquerysp = array(
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'purpose',
+                                'terms' => $purpose->slug,
+                                'field' => 'slug',
+                            ),
+                            array(
+                                'taxonomy' => 'area',
+                                'terms' => 'south',
+                                'field' => 'slug',
+                            ),
+                        );
+                        $args['tax_query'] = $taxquerysp;
+
+                        $the_query =  new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                        ?>
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'area-sp'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
+                <!-- store_area -->
             </div>
-        <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 </main>
 

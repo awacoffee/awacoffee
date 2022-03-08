@@ -9,7 +9,7 @@
 <?php get_header(); ?>
 
 <main id="news_under">
-    <div class="header_img_bg"></div>
+    <div class="header_img_bg mainvisual_wrap"></div>
 
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
@@ -29,8 +29,11 @@
                     <!-- ▼お知らせカード▼ -->
 
                     <?php
+
+                    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                     $args = array(
                         'post_type' => 'post',
+                        'paged' => $paged,
                         'post_per_page' => -1,
                     );
                     $taxquerysp = array('relation' => 'AND');
@@ -47,7 +50,11 @@
 
                         <?php endwhile; ?>
                     <?php endif; ?>
-                    <div class="more_btn"><button>more</button></div>
+                    <div class="pagination_wrap">
+                        <?php if (function_exists('wp_pagenavi')) {
+                            wp_pagenavi(array('query' => $the_query));
+                        } ?>
+                    </div>
                 </div>
             </div>
         </div>

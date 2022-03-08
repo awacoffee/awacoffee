@@ -66,12 +66,6 @@ function awacoffee_scripts()
         get_template_directory_uri() . "/assets/css/news.css",
     );
 
-    // result.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-resultcss",
-        get_template_directory_uri() . "/assets/css/result.css",
-    );
-
     // front-page用のCSS
     if (is_front_page()) {
         wp_enqueue_style('index', get_template_directory_uri() . '/assets/css/index.css');
@@ -137,11 +131,38 @@ function awacoffee_scripts()
         wp_enqueue_style('column_list', get_template_directory_uri() . '/assets/css/column_list.css');
     }
 
+    // archive-shop用のCSS
+    if (is_post_type_archive('shop')) {
+        wp_enqueue_style('result', get_template_directory_uri() . '/assets/css/result.css');
+    }
+
+    // template-allnews用のCSS
+    if (is_page_template('allnews')) {
+        wp_enqueue_style('news', get_template_directory_uri() . '/assets/css/news.css');
+    }
+
+    // result.cssのスタイルシートを読み込む
+    // wp_enqueue_style(
+    //     "awacoffee-resultcss",
+    //     get_template_directory_uri() . "/assets/css/result.css",
+    // );
 
     // Awesome fontsのスタイルシートを読み込む
     wp_enqueue_style(
         "font-awesome",
         "https://use.fontawesome.com/releases/v6.0.0/css/all.css"
+    );
+
+    // fontのスタイルシートを読み込む
+    wp_enqueue_style(
+        "google-font",
+        "https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap"
+    );
+
+    // fontのスタイルシートを読み込む
+    wp_enqueue_style(
+        "adobe-font",
+        "https://use.typekit.net/twf1hjd.css"
     );
 
     // WordPress 本体の jQuery を登録解除
@@ -164,69 +185,7 @@ function awacoffee_scripts()
         "",
         true
     );
-    // // front.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-front',
-    //     get_template_directory_uri() . "/assets/js/front.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // loding.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-lodingjs',
-    //     get_template_directory_uri() . "/assets/js/loding.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // news_list.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-news_listjs',
-    //     get_template_directory_uri() . "/assets/js/news_list.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // search.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-searchjs',
-    //     get_template_directory_uri() . "/assets/js/search.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // store_list.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-store_listjs',
-    //     get_template_directory_uri() . "/assets/js/store_list.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // store.jsのJSファイルを読み込んで、フッターに出力
-    // wp_enqueue_script(
-    //     'awacoffee-storejs',
-    //     get_template_directory_uri() . "/assets/js/store.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
-    // // ★石川記載：header.jsのJSファイルを読み込んで、フッターに出力 ヘッダー動作確認のため★
-    // wp_enqueue_script(
-    //     'awacoffee-headerjs',
-    //     get_template_directory_uri() . "/assets/js/header.js",
-    //     array('jquery'),
-    //     "",
-    //     true
-    // );
-
+    
     // googlemapのapiキーを取得する
     wp_enqueue_script(
         'awacoffee-api',
@@ -288,15 +247,15 @@ add_action('pre_get_posts', 'my_pre_get_posts');
  * google font を読み込む
  *
  */
-function add_google_fonts()
-{
-    wp_register_style(
-        'googleFonts',
-        'https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap'
-    );
-    wp_enqueue_style('googleFonts');
-}
-add_action('wp_enqueue_scripts', 'add_google_fonts');
+// function add_google_fonts()
+// {
+//     wp_register_style(
+//         'googleFonts',
+//         'https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap'
+//     );
+//     wp_enqueue_style('googleFonts');
+// }
+// add_action('wp_enqueue_scripts', 'add_google_fonts');
 
 /*絞り込み検索のショートコード*/
 function mysearch_original()

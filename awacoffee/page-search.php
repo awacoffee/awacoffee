@@ -2,7 +2,7 @@
 
 
 <main>
-<div class="header_img_bg"></div>
+<div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼ページのタイトル▼ -->
     <div class="wrap mainvisual_wrap">
         <div class="under_title inner">

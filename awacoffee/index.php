@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main id="news_under">
-    <div class="header_img_bg"></div>
+    <div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
         <div class="under_title inner">
@@ -26,8 +26,13 @@
 
                         <?php endwhile; ?>
                     <?php endif; ?>
-                    <div class="more_btn"><button>more</button></div>
+                    <div class="pagination_wrap">
+                        <?php if (function_exists('wp_pagenavi')) {
+                            wp_pagenavi();
+                        } ?>
+                    </div>
                 </div>
+
             </div>
         </div>
 

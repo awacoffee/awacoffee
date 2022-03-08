@@ -2,7 +2,7 @@
 
 
 <main class="column_page" id="column_under">
-    <div class="header_img_bg"></div>
+    <div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
         <div class="under_title inner">
@@ -58,7 +58,7 @@
                     <div class="card_wrap">
                         <?php
                         // メニューの投稿タイプ
-                        $category = array(
+                        $args = array(
                             'post_type' => 'column',
                             'posts_per_page' => 3,
                             'orderby' => 'rand',

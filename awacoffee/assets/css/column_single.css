@@ -34,9 +34,9 @@
         grid-template-columns: 1fr 1fr;
     }
 }
-/* ここからページネーションです */
 
-.pagination_wrap {
+/* ここからページネーションです */
+/* .pagination_wrap {
     margin: 20px 0;
     display: flex;
     justify-content: center;
@@ -52,7 +52,7 @@
 .pagination .pagination_1 {
     background-color: #777;
     color: #fff;
-}
+} */
 
 /* ここからcolumn.cssコラム詳細を流用したところ */
 
