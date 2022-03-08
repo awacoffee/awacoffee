@@ -28,7 +28,6 @@ $found_cnt = $wp_query->post_count;
 
 <body>
     <main>
-        <?php echo do_shortcode('[flexy_breadcrumb]'); ?>
         <!-- ▼タイトルエリア▼ -->
         <div class="wrap mainvisual_wrap">
             <div class="under_title inner">
@@ -37,6 +36,7 @@ $found_cnt = $wp_query->post_count;
                     <h1>条件検索結果一覧</h1>
                 </div>
             </div>
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
         <!-- /.wrap -->
 

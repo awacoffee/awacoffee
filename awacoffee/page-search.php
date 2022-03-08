@@ -2,7 +2,7 @@
 
 
 <main>
-<div class="header_img_bg mainvisual_wrap"></div>
+    <div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼ページのタイトル▼ -->
     <div class="wrap mainvisual_wrap">
         <div class="under_title inner">
@@ -11,6 +11,7 @@
                 <h1>条件検索</h1>
             </div>
         </div>
+        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
 
     <div class="wrap">
@@ -115,9 +116,9 @@
                     </label>
                 </div>
                 <!-- リセットボタン -->
-            <div class="reset_btn_wrap">
-              <input type="reset" value="リセット" id="reset_btn" />
-            </div>
+                <div class="reset_btn_wrap">
+                    <input type="reset" value="リセット" id="reset_btn" />
+                </div>
             </div>
         </form>
     </div>

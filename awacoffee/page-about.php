@@ -10,6 +10,7 @@
         <h1>このサイトについて</h1>
       </div>
     </div>
+    <?php get_template_part('template-parts/breadcrumb'); ?>
   </div>
   <!-- 一つ目削除？ -->
   <section>

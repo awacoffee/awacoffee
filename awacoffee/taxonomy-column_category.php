@@ -10,6 +10,7 @@
         <h1>コラム</h1>
       </div>
     </div>
+    <?php get_template_part('template-parts/breadcrumb'); ?>
   </div>
   <!-- /.wrap -->
   <!-- 全体で囲む or flex -->

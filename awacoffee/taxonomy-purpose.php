@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main id="store_list_under">
-<div class="header_img_bg mainvisual_wrap"></div>
+    <div class="header_img_bg mainvisual_wrap"></div>
     <?php
     // 開いているページの情報を取得
     $purpose_slug = get_query_var('purpose');
@@ -17,6 +17,7 @@
                 <h1><?php echo $purpose->name; ?></h1>
             </div>
         </div>
+        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
     <!-- /.wrap -->
     <?php

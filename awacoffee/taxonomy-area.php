@@ -17,6 +17,7 @@
                 <h1><?php echo $area->name; ?></h1>
             </div>
         </div>
+        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
     <!-- /.wrap -->
     <?php
