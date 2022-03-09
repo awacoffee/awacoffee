@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <?php echo do_shortcode('[flexy_breadcrumb]'); ?>
+    <div class="header_img_bg mainvisual_wrap"></div>
     <?php
     // 開いているページの情報を取得
     $area_slug = get_query_var('area');
@@ -69,11 +69,6 @@
                         $taxquerysp = array(
                             'relation' => 'AND',
                             array(
-                                'taxonomy' => 'purpose',
-                                'terms' => $purpose->slug,
-                                'field' => 'slug',
-                            ),
-                            array(
                                 'taxonomy' => 'area',
                                 'terms' => 'tokushima',
                                 'field' => 'slug',
@@ -137,11 +132,6 @@
                         // エリアで絞り込む
                         $taxquerysp = array(
                             'relation' => 'AND',
-                            array(
-                                'taxonomy' => 'purpose',
-                                'terms' => $purpose->slug,
-                                'field' => 'slug',
-                            ),
                             array(
                                 'taxonomy' => 'area',
                                 'terms' => 'east',
@@ -207,11 +197,6 @@
                         $taxquerysp = array(
                             'relation' => 'AND',
                             array(
-                                'taxonomy' => 'purpose',
-                                'terms' => $purpose->slug,
-                                'field' => 'slug',
-                            ),
-                            array(
                                 'taxonomy' => 'area',
                                 'terms' => 'west',
                                 'field' => 'slug',
@@ -275,11 +260,6 @@
                         // エリアで絞り込む
                         $taxquerysp = array(
                             'relation' => 'AND',
-                            array(
-                                'taxonomy' => 'purpose',
-                                'terms' => $purpose->slug,
-                                'field' => 'slug',
-                            ),
                             array(
                                 'taxonomy' => 'area',
                                 'terms' => 'south',

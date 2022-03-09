@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <main id="about_under">
-    <!-- ▼パンクズ挿入▼ -->
     <!-- ▼タイトルエリア▼ -->
     <div class="wrap">
         <div class="under_title inner">

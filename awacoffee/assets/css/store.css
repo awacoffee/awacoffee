@@ -247,17 +247,11 @@ dd a:link {
     margin-bottom: 40px;
 }
 
-/* サイドバー追従 */
-/* @media (min-width: 768px) {
-    aside {
-        display: block;
-    }
+@media (min-width: 768px) {
     .side_scrool {
-        position: sticky;
-        position: -webkit-sticky;
-        top: 100px;
+        position: static;
     }
-} */
+}
 
 /* ▼インタビュー記事ある場合▼ */
 /* ▼コラムカード▼ */

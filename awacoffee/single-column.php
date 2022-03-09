@@ -14,7 +14,6 @@
                 </div>
             </div>
         </div>
-        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
 
     <!-- 全体で囲む or flex -->

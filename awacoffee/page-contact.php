@@ -16,7 +16,6 @@ if (is_page('contact')) {
         <h1>お問い合わせ</h1>
       </div>
     </div>
-    <?php get_template_part('template-parts/breadcrumb'); ?>
   </div>
   <!-- /.wrap -->
 

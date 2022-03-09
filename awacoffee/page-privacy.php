@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <main id="privacy_under">
   <div class="header_img_bg mainvisual_wrap"></div>
-  <!-- ▼パンクズ挿入▼ -->
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">
@@ -10,7 +9,6 @@
         <h1>プライバシーポリシー</h1>
       </div>
     </div>
-    <?php get_template_part('template-parts/breadcrumb'); ?>
     <!-- wrapをひとまとめにするか -->
     <!-- </div> -->
     <!-- <div class="wrap"> -->

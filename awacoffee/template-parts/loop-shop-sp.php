@@ -14,13 +14,13 @@
                     <h3 class="stores_name">
                         <?php the_title(); ?>
                     </h3>
-                    <div class="stores_catch"></div>
-                    <div class="stores_tags">
-                        <p class="stores_tag">
-                            <?php the_field('catchphrase'); ?>
-                        </p>
+                    <div class="stores_catch">
                     </div>
+                    <p class="stores_tag">
+                        <?php the_field('catchphrase'); ?>
+                    </p>
                 </div>
+
             </a>
         </article>
     <?php endwhile; ?>

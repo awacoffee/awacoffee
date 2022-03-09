@@ -87,7 +87,7 @@ function awacoffee_scripts()
     }
 
     // page-mypage用のCSS
-    if (is_page('maypage')) {
+    if (is_page('mypage')) {
         wp_enqueue_style('mypage', get_template_directory_uri() . '/assets/css/mypage.css');
     }
 
@@ -97,8 +97,8 @@ function awacoffee_scripts()
     }
 
     // page-about用のCSS
-    if (is_page('about')) {
-        wp_enqueue_style('about', get_template_directory_uri() . '/assets/css/about.css');
+    if (is_page('aboutus')) {
+        wp_enqueue_style('aboutus', get_template_directory_uri() . '/assets/css/about.css');
     }
 
     // page-contact用のCSS

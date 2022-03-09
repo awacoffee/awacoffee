@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-
 <main>
     <div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼ページのタイトル▼ -->
@@ -11,7 +10,6 @@
                 <h1>条件検索</h1>
             </div>
         </div>
-        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
 
     <div class="wrap">
