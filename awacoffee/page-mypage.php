@@ -112,7 +112,7 @@
                   ?>
                   <div class="marker" data-lat="<?php echo esc_attr($googlemap['lat']); ?>" data-lng="<?php echo esc_attr($googlemap['lng']); ?>">
                     <a href="<?php echo get_permalink(); ?>">
-                      <?php echo esc_attr($googlemap['name']); ?>
+                      <?php the_title(); ?>
                     </a>
                   </div>
 
