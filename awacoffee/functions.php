@@ -185,7 +185,7 @@ function awacoffee_scripts()
         "",
         true
     );
-    
+
     // googlemapのapiキーを取得する
     wp_enqueue_script(
         'awacoffee-api',
@@ -293,3 +293,34 @@ function custom_search($search, $wp_query)
     return $search;
 }
 add_filter('posts_search', 'custom_search', 10, 2);
+
+// 条件検索結果一覧、キーワード検索結果は全部表示
+function twpp_change_posts_per_page($query)
+{
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+    if ($query->is_post_type_archive('shop')) {
+        $query->set('posts_per_page', -1);
+    } elseif ($query->is_search()) {
+        $query->set('posts_per_page', -1);
+    } elseif ($query->is_page('mypage')) {
+        $query->set('posts_per_page', -1);
+    }
+}
+add_action('pre_get_posts', 'twpp_change_posts_per_page');
+
+add_action('pre_get_posts', 'twpp_change_posts_per_page');
+
+// タブにページごとのタイトルを表示させる
+function my_document_title_parts($title)
+{
+    if (is_home()) {
+        unset($title['tagline']);
+        $title['title'] = 'Awa Our Coffee Hour';
+    } elseif (is_post_type_archive('shop')) {
+        $title['title'] = '条件検索結果一覧';
+    }
+    return $title;
+}
+add_filter('document_title_parts', 'my_document_title_parts');

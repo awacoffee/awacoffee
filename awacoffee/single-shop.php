@@ -1,48 +1,3 @@
-<?php
-if (isset($_POST['favoritepageid'])) {
-    // お気に入りボタンが押されてPOSTが送信されていれば、$favoritepageidに投稿IDを代入
-    $favoritepageid = "";
-    if (isset($_POST['favoritepageid']) && !empty($_POST['favoritepageid'])) {
-        $favoritepageid = $_POST['favoritepageid'];
-    };
-
-    // 「favoritepagelist」のcookieがすでにセットされていれば、そのまま「favoritepagelist」のcookieを$favoritepagelistに代入する。
-    $favoritepagelist = "";
-    if (isset($_COOKIE['favoritepagelist'])) {
-        $favoritepagelist = $_COOKIE['favoritepagelist'];
-    };
-
-    // $favoritepagelistに値が入っていれば、それを文字列⇒配列に変換する
-    $favoritepagelist = explode(',', $favoritepagelist);
-
-    // print_r($favoritepagelist);
-
-    // $favoritepagelistの中に$favoritepageidと同じ値の要素があるかチェックする
-    // 同じ要素が無ければ末尾に新しく追加する。同じ要素があればそれを削除し、空いたindexを詰める
-    if ($favoritepageid != "") {
-        $favosearch = in_array($favoritepageid, $favoritepagelist, true);
-        // print_r($favosearch);
-    }
-    if ($favoritepageid != "" && $favosearch == false) {
-        array_push($favoritepagelist, $favoritepageid);
-    } elseif ($favoritepageid != "" && $favosearch == true) {
-        $favoritepagelist = array_diff($favoritepagelist, array($favoritepageid));
-        array_values($favoritepagelist);
-    };
-
-    // print_r($favoritepagelist);
-    // print_r($favoritepageid);
-
-    // $favoritepagelistを配列⇒文字列に変換してcookieに保存する
-    $favoritepagelist = implode(',', $favoritepagelist);
-    // print_r($favoritepagelist);
-    setcookie("favoritepagelist", $favoritepagelist, time() + 60 * 60 * 24 * 60, '/');
-
-    $_SESSION['succses_message'] = "お気に入り登録が完了しました";
-    header('Location: ./');
-}
-?>
-
 <?php get_header(); ?>
 
 <main>
@@ -88,54 +43,12 @@ if (isset($_POST['favoritepageid'])) {
                         <div class="store_fun_jump">
                             <a href="#store_info" class="store_info_btn"><i class="fa-solid fa-circle-chevron-down"></i>お店の基本情報へ</a>
                             <div class="store_fun">
-                                <form action="<?php the_permalink(); ?>" method="post" class="form__favorite__btn">
-                                    <button class="favorite__btn" type="submit" name="favoritepageid" value="<?php the_ID(); ?>">
-                                        <?php
-                                        $favosearchjs = "";
-                                        if (isset($_COOKIE['favoritepagelist'])) {
-                                            $favoritelistjs = $_COOKIE['favoritepagelist'];
-                                            $favoritelistjs = explode(',', $favoritelistjs);
-                                            // print_r($favoritelistjs);
-                                            $favoriteidjs = get_the_ID();
-                                            // print_r($favoriteidjs);
-                                            $favosearchjs = in_array($favoriteidjs, $favoritelistjs);
-                                            // print_r($favosearchjs);
-                                        }
-                                        if ($favosearchjs == true) {
-                                        ?>
-                                            <i class="fa-solid fa-bookmark"></i>
-                                        <?php } elseif ($favosearchjs == false) { ?>
-                                            <i class="fa-regular fa-bookmark"></i>
-                                        <?php }
-                                        // print_r($color);
-                                        ?>
 
-                                    </button>
-
-                                    <style>
-                                        .form__favorite__btn {
-                                            align-self: center;
-                                            padding: 0;
-                                            margin-right: 20px;
-                                            background-color: transparent;
-                                        }
-
-                                        .favorite__btn .fa-bookmark {
-                                            /* padding-left: 30px;
-                                            padding-right: 10px; */
-                                            font-size: 30px;
-                                        }
-                                    </style>
-                                </form>
-                                <!-- <div class="store_mark"></div> -->
+                                <div style="font-size:30px;">
+                                    <?php echo do_shortcode('[favorite_button post_id="" site_id=""]') ?>
+                                </div>
 
                                 <div class="store_like">
-                                    <!-- <div class="wpulike wpulike-heart">
-                                        <div class="wp_ulike_general_class wp_ulike_is_liked">
-                                            <button type="button" aria-label="いいねボタン" data-ulike-id="111" data-ulike-nonce="f54cf426ee" data-ulike-type="post" data-ulike-template="wpulike-heart" data-ulike-display-likers="" data-ulike-likers-style="popover" class="wp_ulike_btn wp_ulike_put_image image-unlike wp_ulike_btn_is_active wp_post_btn_111"></button>
-                                            <span class="count-box wp_ulike_counter_up" data-ulike-counter-value="+1">+1</span>
-                                        </div>
-                                    </div> -->
                                     <?php echo do_shortcode('[wp_ulike]'); ?>
                                 </div>
 

@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php bloginfo('name'); ?></title>
     <?php
     wp_head();
     ?>
@@ -23,25 +22,6 @@
                         <a href="<?php echo home_url(); ?>" class="header_wrap_box_icon">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon.svg" alt="Awa Our Coffee Hourのアイコン" />
                         </a>
-                        <!-- <nav>
-                            <ul class="header_nav_list">
-                                <li>
-                                    <a href="<?php echo get_permalink(243); ?>" class="header_nav_item">条件検索</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo home_url('/column_category/beginner/'); ?>" class="header_nav_item">コーヒー入門知識</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo home_url('/column_category/blog/'); ?>" class="header_nav_item">ブログ</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo home_url('/column_category/special/'); ?>" class="header_nav_item">特集</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo get_permalink(245); ?>" class="header_nav_item">マイページ</a>
-                                </li>
-                            </ul>
-                        </nav> -->
                         <?php
                         $args = array(
                             'menu' => 'header-global-navigation',
@@ -51,8 +31,6 @@
                         );
                         wp_nav_menu($args);
                         ?>
-
-
                         <!-- ▼ハンバーガーメニュー▼ -->
                         <div class="header_wrap_box_nav">
                             <span class="header_wrap_box_nav_line"></span>
@@ -76,7 +54,6 @@
                         <div class="drower_nav_logo">
                             <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_aoch.png" alt="Awa Our Coffee Hour" /></a>
                         </div>
-
                         <?php
                         $args = array(
                             'menu' => 'header-drower-nav-top',
