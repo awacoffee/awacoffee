@@ -10,7 +10,6 @@
         <h1>コラム</h1>
       </div>
     </div>
-    <?php get_template_part('template-parts/breadcrumb'); ?>
   </div>
   <!-- /.wrap -->
   <!-- 全体で囲む or flex -->
@@ -142,13 +141,6 @@
             </div>
           </div>
           <div class="pagination_wrap">
-            <!-- <ul class="pagination">
-              <li>前へ</li>
-              <li class="pagination_1">1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>次へ</li>
-            </ul> -->
             <?php if (function_exists('wp_pagenavi')) {
               wp_pagenavi();
             } ?>

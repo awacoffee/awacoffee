@@ -28,6 +28,7 @@ $found_cnt = $wp_query->post_count;
 
 <body>
     <main>
+        <div class="header_img_bg mainvisual_wrap"></div>
         <!-- ▼タイトルエリア▼ -->
         <div class="wrap mainvisual_wrap">
             <div class="under_title inner">
@@ -36,7 +37,6 @@ $found_cnt = $wp_query->post_count;
                     <h1>条件検索結果一覧</h1>
                 </div>
             </div>
-            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
         <!-- /.wrap -->
 
@@ -119,7 +119,7 @@ $found_cnt = $wp_query->post_count;
                         <div class="result_list_area">
                             <div class="box">
                                 <div class="sp_stores_cards store_lists">
-                                    <?php get_template_part('template-parts/loop', 'shop'); ?>
+                                    <?php get_template_part('template-parts/loop', 'shop-sp'); ?>
                                 </div>
                             </div>
                             <!-- sp_stores_cars -->

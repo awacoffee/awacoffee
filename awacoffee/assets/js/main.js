@@ -84,7 +84,7 @@ $(function () {
   let section = $("#index_under").find("section");
   console.log(section);
   $(section).css({ opacity: "0" });
-  $(window).scroll(function () {
+  $(window).on("scroll load", function () {
     $(section).each(function () {
       var section_h = $(this).offset().top;
       var scr = $(window).scrollTop();
@@ -395,11 +395,11 @@ $(function () {
 });
 
 //  ===ブックマークのチェック=========================================================
-$(function () {
-  $(".store_mark").on("click", function () {
-    $(this).toggleClass("checked");
-  });
-});
+// $(function () {
+//   $(".store_mark").on("click", function () {
+//     $(this).toggleClass("checked");
+//   });
+// });
 
 // ------------------------------------------------------------------------
 // 条件検索ページ
@@ -425,11 +425,11 @@ $(function () {
 // });
 
 //data - imageの動き
-const map = document.querySelectorAll('.s_search_radios');
+const map = document.querySelectorAll(".s_search_radios");
 map.forEach(function (item, index) {
   item.onclick = function () {
-    document.getElementById('main_map').src = this.dataset.image;
-  }
+    document.getElementById("main_map").src = this.dataset.image;
+  };
 });
 
 // ------------------------------------------------------------------------

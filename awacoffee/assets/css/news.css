@@ -7,7 +7,7 @@
 /* .column2_article {
   flex-basis: 70%;
 } */
-.header_img_bg {
+#news_under .header_img_bg {
     background-image: url(../img/under_news_column.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     }
 }
 
-.news_wrap_card {
+/* .news_wrap_card {
     margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #7b850b;
@@ -85,18 +85,10 @@
         max-width: 800px;
         margin: 0 auto;
     }
-}
+} */
 
-/* サイドバー追従 */
-@media (min-width: 768px) {
-    aside {
-        display: block;
-    }
-    .side_scrool {
-        position: sticky;
-        position: -webkit-sticky;
-        top: 100px;
-    }
+.news_text:hover {
+    background-color: #f6f4ef;
 }
 
 /* ===================== ↓more_btn関係 ===================== */

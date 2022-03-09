@@ -55,7 +55,6 @@ if (isset($_POST['favoritepageid'])) {
                 <h1>お店で飲みたい</h1>
             </div>
         </div>
-        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
     <!-- /.wrap -->
 

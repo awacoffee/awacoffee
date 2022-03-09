@@ -13,10 +13,11 @@
                 <?php the_title(); ?>
             </h3>
             <div class="stores_catch">
-                <p class="stores_tag">
-                    <?php the_field('catchphrase'); ?>
-                </p>
             </div>
+            <p class="stores_tag">
+                <?php the_field('catchphrase'); ?>
+            </p>
         </div>
+
     </a>
 </article>

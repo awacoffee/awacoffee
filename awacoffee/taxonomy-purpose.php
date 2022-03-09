@@ -17,7 +17,6 @@
                 <h1><?php echo $purpose->name; ?></h1>
             </div>
         </div>
-        <?php get_template_part('template-parts/breadcrumb'); ?>
     </div>
     <!-- /.wrap -->
     <?php

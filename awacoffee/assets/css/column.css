@@ -130,18 +130,6 @@
 /* コラム個別一覧css　サイドバー */
 /* ======================================================== */
 
-/* サイドバー追従 */
-@media (min-width: 768px) {
-    aside {
-        display: block;
-    }
-    .side_scrool {
-        position: sticky;
-        position: -webkit-sticky;
-        top: 100px;
-    }
-}
-
 /* ▼レコメンド▼ */
 section.recommend {
     background-color: #fff;
