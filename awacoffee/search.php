@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main id="column_list_under">
+  <div class="header_img_bg mainvisual_wrap"></div>
   <!-- ▼タイトルエリア▼ -->
   <div class="wrap">
     <div class="under_title inner">
@@ -14,7 +15,7 @@
 
   <section>
     <div class="wrap">
-      <div class="inner">
+      <div class="inner column_item_inner">
         <div class="text_btns">
           <?php
           $column_categories = get_terms(array('taxonomy' => 'column_category'));

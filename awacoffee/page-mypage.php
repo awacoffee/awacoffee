@@ -54,7 +54,7 @@
               <?php endwhile; ?>
             <?php endif; ?>
           <?php else : ?>
-            <p>お気に入りがありません。</p>
+            <p>本マイページには店舗詳細ページにてブックマークした情報が表示されます。</p>
           <?php endif; ?>
         </div>
 
@@ -80,7 +80,7 @@
               <?php endwhile; ?>
             <?php endif; ?>
           <?php else : ?>
-            <p>お気に入りがありません。</p>
+            <p>本マイページには店舗詳細ページにてブックマークした情報が表示されます。</p>
           <?php endif; ?>
         </div>
 
@@ -126,7 +126,7 @@
               height: 450px;
               /* position: initial !important; */
               border: #ccc solid 1px;
-              margin: 20px 0;
+              /* margin: 20px 0; */
             }
 
             .acf-map img {

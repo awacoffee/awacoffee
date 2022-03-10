@@ -55,10 +55,10 @@ function awacoffee_scripts()
     );
 
     // loding.cssのスタイルシートを読み込む
-    wp_enqueue_style(
-        "awacoffee-lodingcss",
-        get_template_directory_uri() . "/assets/css/loding.css",
-    );
+    // wp_enqueue_style(
+    //     "awacoffee-lodingcss",
+    //     get_template_directory_uri() . "/assets/css/loding.css",
+    // );
 
     // news.cssのスタイルシートを読み込む
     wp_enqueue_style(
@@ -178,11 +178,18 @@ function awacoffee_scripts()
     );
 
     // ★石川追記：main.jsのJSファイルを読み込んで、フッターに出力
-    wp_enqueue_script(
+    // wp_enqueue_script(
+    //     'awacoffee-front',
+    //     get_template_directory_uri() . "/assets/js/main.js",
+    //     array('jquery'),
+    //     "",
+    //     true
+    // );
+      wp_enqueue_script(
         'awacoffee-front',
         get_template_directory_uri() . "/assets/js/main.js",
         array('jquery'),
-        "",
+        date("YmdHis"),
         true
     );
 

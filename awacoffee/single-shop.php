@@ -7,7 +7,7 @@
         <div class="under_title inner">
             <div class="under_wrap_title">
                 <p>Store</p>
-                <h1>お店で飲みたい</h1>
+                <h1>お店の詳細情報</h1>
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
                             </dd>
 
                             <?php if (get_field('menu')) : ?>
-                                <dt class="deta_detail">メニュー</dt>
+                                <dt class="deta_detail">モーニング・ランチ</dt>
                                 <dd>
                                     <?php
                                     $menus = get_field('menu');

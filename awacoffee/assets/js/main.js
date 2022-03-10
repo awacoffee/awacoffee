@@ -84,7 +84,7 @@ $(function () {
   let section = $("#index_under").find("section");
   console.log(section);
   $(section).css({ opacity: "0" });
-  $(window).on("scroll load", function () {
+  $(window).on("load scroll", function () {
     $(section).each(function () {
       var section_h = $(this).offset().top;
       var scr = $(window).scrollTop();
@@ -102,7 +102,7 @@ $(function () {
   var header_h = $(".header_inner_bg").outerHeight();
   var mainv_h = $(".mainvisual_wrap").outerHeight();
   var footer_h = $("#footer_wrap").offset().top;
-  $(window).scroll(function headerfun() {
+  $(window).on("load scroll", function () {
     var scr = $(this).scrollTop();
     if (scr > footer_h - header_h / 2) {
       $(".header_inner_bg").addClass("none");
@@ -148,14 +148,14 @@ $(function () {
 //  ===topbutton=========================================================
 $(function () {
   var mainv_h = $(".mainvisual_wrap").outerHeight();
-  $(window).scroll(function headerfun() {
+  $(window).on("load scroll", function () {
     var scr = $(this).scrollTop();
     if (scr > mainv_h) {
-      $(".js-scroll").addClass("none");
-      $(".js-pagetop").removeClass("none");
+      $(".js-scroll").removeClass("visible");
+      $(".js-pagetop").addClass("visible");
     } else {
-      $(".js-pagetop").addClass("none");
-      $(".js-scroll").removeClass("none");
+      $(".js-pagetop").removeClass("visible");
+      $(".js-scroll").addClass("visible");
     }
   });
 
@@ -404,32 +404,22 @@ $(function () {
 // ------------------------------------------------------------------------
 // 条件検索ページ
 // ------------------------------------------------------------------------
-// const map_total_number = 4,
-//   main_map = document.getElementById("main_map"),
-//   click_map = document.getElementById("click_map"),
-//   reset_btn = document.getElementById("reset_btn");
-// main_map.setAttribute("src", "assets/img/map_1.svg");
+const map_total_number = 4,
+  main_map = document.getElementById("main_map"),
+  click_map = document.getElementById("click_map"),
+  reset_btn = document.getElementById("reset_btn");
+main_map.setAttribute("src", path + "/assets/img/map_1.svg");
 
-// for (let i = 0; i < map_total_number; i++) {
-//   const click_map = document.getElementById("map_" + (i + 1));
+for (let i = 0; i < map_total_number; i++) {
+  const click_map = document.getElementById("map_" + (i + 1));
 
-//   click_map.addEventListener("click", () => {
-//     main_map.setAttribute("src", `assets/img/map_${i + 1}.svg`);
-//   });
+  click_map.addEventListener("click", () => {
+    main_map.setAttribute("src", path + `/assets/img/map_${i + 1}.svg`);
+  });
+}
 
-//   console.log(click_map);
-// }
-
-// reset_btn.addEventListener("click", function () {
-//   main_map.setAttribute("src", `assets/img/map_1.svg`);
-// });
-
-//data - imageの動き
-const map = document.querySelectorAll(".s_search_radios");
-map.forEach(function (item, index) {
-  item.onclick = function () {
-    document.getElementById("main_map").src = this.dataset.image;
-  };
+reset_btn.addEventListener("click", function () {
+  main_map.setAttribute("src", path + `/assets/img/map_1.svg`);
 });
 
 // ------------------------------------------------------------------------

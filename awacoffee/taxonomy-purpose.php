@@ -19,6 +19,11 @@
         </div>
     </div>
     <!-- /.wrap -->
+    <div class="store_fun_jump">
+        <a href="#jump-east" class="store_info_btn"><i class="fa-solid fa-circle-chevron-down"></i> 東部へ</a>
+        <a href="#jump-west" class="store_info_btn"><i class="fa-solid fa-circle-chevron-down"></i> 西部へ</a>
+        <a href="#jump-south" class="store_info_btn"><i class="fa-solid fa-circle-chevron-down"></i> 南部へ</a>
+    </div>
     <?php
     $areas = get_terms(array('taxonomy' => 'area'));
     if (!empty($areas)) :
@@ -27,7 +32,7 @@
             <div class="wrap">
                 <div class="inner">
                     <div class="store_area city_area">
-                        <h2 class="area_cate"><?php echo $area->name; ?></h2>
+                        <h2 class="area_cate" id="jump-<?php echo $area->slug; ?>"><?php echo $area->name; ?></h2>
                         <div class="box">
                             <!--PC版での記事一覧の表示-->
                             <div class="pc_stores_cards store_lists">
@@ -54,9 +59,9 @@
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="more_btn">
+                            <!-- <div class="more_btn">
                                 <button>more</button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="box">
                             <!--SP版の記事表示-->
@@ -84,9 +89,9 @@
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="sp_more_btn">
-                                <button>more</button>
-                            </div>
+                            <!-- <div class="sp_more_btn">
+                                    <button>more</button>
+                                </div> -->
                         </div>
                         <!-- store_area -->
                     </div>

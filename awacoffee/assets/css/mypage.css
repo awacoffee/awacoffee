@@ -69,7 +69,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 20px 0 0;
+  padding: 20px 0 40px;
   max-width: 1100px;
 }
 .pc_stores_cards .stores_card {
@@ -130,7 +130,7 @@
   width: 95%;
   left: 16px;
   background-color: #fff;
-  padding: 80% 20px 10px;
+  padding: 90% 20px 10px;
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
@@ -157,19 +157,11 @@
   margin-bottom: 50px;
 }
 
-/* SP版は4:3 */
-.my_map_box {
-  position: relative;
-  /* padding-top: 75%; */
-  padding-top: 0%;
-}
-
-/* fuji */
 .mypage_text::before {
   content: "■";
 }
 .mypage_text {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   .mypage_text {
@@ -178,7 +170,6 @@
     text-align: left;
   }
 }
-/* fuji end */
 
 .my_map_box iframe {
   position: absolute;
@@ -188,12 +179,8 @@
   height: 100%;
   object-fit: cover;
 }
-/* PC版は2:1 */
+
 @media (min-width: 768px) {
-  /* .my_map_box {
-    position: relative;
-    padding-top: 50%;
-  } */
   .my_map_box iframe {
     position: absolute;
     top: 0;
@@ -202,4 +189,8 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.sp_stores_cards {
+    padding: 20px 0 20px;
 }

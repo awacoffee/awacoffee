@@ -14,18 +14,15 @@
     margin: 0 auto;
 }
 .result h2 {
-    margin-bottom: 40px;
+    margin: 20px 0;
     font-size: 18px;
     text-align: left;
 }
-.search_words_area,
-.result_area {
-    padding-bottom: 80px;
-}
+
 @media (min-width: 768px) {
-    .search_words_area {
-        padding-bottom: 60px;
-    }
+    .result h2 {
+    font-size: 28px;
+}
 }
 
 /* 左よこ縦棒 */
@@ -34,16 +31,15 @@
     font-family: "Shippori Mincho B1";
     font-size: 15px;
     border-left: #7b850b 5px solid;
-    margin-bottom: 10px;
 }
 @media (min-width: 768px) {
     .area_cate {
-        margin-bottom: 50px;
+        margin-bottom: 5px;
         font-size: 24px;
     }
 }
 .search_words_box {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .search_words_list {
     padding: 10px;
@@ -66,20 +62,23 @@
     content: "■";
 }
 .result_text {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 @media (min-width: 768px) {
     .result_text {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         font-size: 20px;
         text-align: left;
+    }
+    .result_map .result_text {
+        margin-top: 20px;
     }
 }
 
 /* SP版は4:3 */
 .result_map_box {
     position: relative;
-    padding-top: 75%;
+    /* padding-top: 75%; */
 }
 .result_map_box iframe {
     position: absolute;
@@ -93,7 +92,7 @@
 @media (min-width: 768px) {
     .result_map_box {
         position: relative;
-        padding-top: 50%;
+        /* padding-top: 50%; */
     }
     .result_map_box iframe {
         position: absolute;

@@ -1,5 +1,5 @@
 <aside>
-    <h2 class="side_title">ニュース</h2>
+    <h2 class="side_title">ニュースカテゴリ一覧</h2>
     <ul class="side_lists">
         <?php
         // カテゴリーnewsのslug情報を取得

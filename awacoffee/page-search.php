@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main id="under_search">
     <div class="header_img_bg mainvisual_wrap"></div>
     <!-- ▼ページのタイトル▼ -->
     <div class="wrap mainvisual_wrap">
@@ -8,6 +8,7 @@
             <div class="under_wrap_title">
                 <p>Search</p>
                 <h1>条件検索</h1>
+                <p class="search_title_text">条件を指定して検索することができます。</p>
             </div>
         </div>
     </div>
@@ -45,7 +46,7 @@
                 </section>
                 <!-- 目的別 -->
                 <section class="purpose_wrap">
-                    <h2 class="search_title">目的で探す</h2>
+                    <h2 class="search_title">目的</h2>
                     <div>
                         <input type="radio" name="purpose" value="drink" id="drink" checked />
                         <label for="drink" class="s_search_btn">お店で飲みたい</label>
@@ -55,7 +56,7 @@
                 </section>
                 <!-- シチュエーション別 -->
                 <section class="situation_wrap">
-                    <h2 class="search_title">シチュエーションで探す</h2>
+                    <h2 class="search_title">シチュエーション</h2>
                     <div class="checkbox_wrap">
                         <input type="checkbox" name="situation[]" value="solo" id="1" />
                         <label for="1" class="s_search_btn">一人で</label>

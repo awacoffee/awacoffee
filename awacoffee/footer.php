@@ -1,10 +1,24 @@
 <footer>
+    <div class="scroll_anime">
+        <!-- ↓ -->
+        <div id="top_to_button" class="js-pagetop scroll-top">
+            <div class="arrow"></div>
+            <p>Page Top</p>
+        </div>
+        <!-- ↑ -->
+        <div class="js-scroll scroll-top scroll-view visible">
+            <div class="arrow"></div>
+            <p>Scroll</p>
+        </div>
+    </div>
     <div id="footer_wrap" class="wrap">
         <div class="inner">
             <!-- ▼フッター▼ -->
             <div class="footer_flex">
                 <div class="footer_logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_aoch.png" alt="Awa Our Coffee Hourのロゴ" />
+                    <a href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_aoch.png" alt="Awa Our Coffee Hourのロゴ" />
+                    </a>
                 </div>
                 <nav class="footer_nav">
                     <div class="footer_nav_flex">
@@ -43,19 +57,11 @@
     </div>
     <!-- footer_wrap -->
 </footer>
-<div class="scroll_anime">
-    <!-- ↓ -->
-    <div class="js-scroll scroll-top scroll-view">
-        <div class="arrow"></div>
-        <p>Scroll</p>
-    </div>
-    <!-- ↑ -->
-    <div id="top_to_button" class="js-pagetop scroll-top none">
-        <div class="arrow"></div>
-        <p>Page Top</p>
-    </div>
-</div>
 
+<script>
+    var path = "<?php echo get_template_directory_uri(); ?>";
+    console.log(path);
+</script>
 <?php wp_footer(); ?>
 </body>
 

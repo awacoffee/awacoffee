@@ -59,7 +59,7 @@ $found_cnt = $wp_query->post_count;
                             </ul>
                         </div>
                         <div class="search_words_box">
-                            <h3 class="area_cate">目的から探すの指定</h3>
+                            <h3 class="area_cate">目的の指定</h3>
                             <ul class="search_words_list">
                                 <li class="search_words_item">
                                     <!-- カスタム投稿「目的」のターム名表示 -->
@@ -73,7 +73,7 @@ $found_cnt = $wp_query->post_count;
                         </div>
                         <div class="search_words_box">
                             <h3 class="area_cate">
-                                シチュエーション別から探すの指定
+                                シチュエーションの指定
                             </h3>
                             <ul class="search_words_list">
                                 <?php if (isset($_GET['situation'])) : ?>
@@ -88,7 +88,7 @@ $found_cnt = $wp_query->post_count;
                         </div>
                         <div class="search_words_box">
                             <h3 class="area_cate">
-                                サービス・設備から探すの指定
+                                サービス・設備の指定
                             </h3>
                             <ul class="search_words_list">
                                 <?php if (isset($_GET['services'])) : ?>
@@ -132,7 +132,7 @@ $found_cnt = $wp_query->post_count;
                     </div>
                     <div class="result_map">
                         <div class="result_text">MAP</div>
-                        <div class="result_map_box" style="padding-top:0;">
+                        <div class="result_map_box">
                             <div class="acf-map" data-zoom="16">
                                 <?php if (have_posts()) : ?>
                                     <?php while (have_posts()) : the_post(); ?>
@@ -150,7 +150,7 @@ $found_cnt = $wp_query->post_count;
                                     height: 450px;
                                     /* position: initial !important; */
                                     border: #ccc solid 1px;
-                                    margin: 20px 0;
+                                    /* margin: 20px 0; */
                                 }
 
                                 .acf-map img {
@@ -161,7 +161,7 @@ $found_cnt = $wp_query->post_count;
                         </div>
                     </div>
                     <div class="btn_wrap">
-                        <a class="btn_link" href="<?php echo get_permalink(243); ?>"><span><i class="fa-solid fa-magnifying-glass"></i>再検索する</span></a>
+                        <a class="btn_link" href="<?php echo get_permalink(243); ?>"><span>検索条件を変更する</span></a>
                     </div>
                 </div>
             </div>
