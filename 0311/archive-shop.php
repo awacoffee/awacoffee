@@ -72,7 +72,7 @@ if (isset($_GET['services'])) {
                         </div>
                         <div class="search_words_box">
                             <h3 class="area_cate">
-                                <!-- シチュエーションの指定 -->
+                                シチュエーションの指定
                             </h3>
                             <ul class="search_words_list">
                                 <?php if (isset($_GET['situation'])) : ?>
@@ -87,7 +87,7 @@ if (isset($_GET['services'])) {
                         </div>
                         <div class="search_words_box">
                             <h3 class="area_cate">
-                                <!-- サービス・設備の指定 -->
+                                サービス・設備の指定
                             </h3>
                             <ul class="search_words_list">
                                 <?php if (isset($_GET['services'])) : ?>
@@ -205,8 +205,8 @@ if (isset($_GET['services'])) {
                         <div class="result_text">MAP</div>
                         <div class="result_map_box">
                             <div class="acf-map" data-zoom="16">
-                                <?php if (have_posts()) : ?>
-                                    <?php while (have_posts()) : the_post(); ?>
+                                <?php if ($the_query->have_posts()) : ?>
+                                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                         <?php
                                         $googlemap = get_field('location'); //get_field()内の値は、2-2.で追加したフィールドの「field_name」
                                         // print_r($googlemap);
